@@ -32,6 +32,7 @@ Things you may want to cover:
 |first_name|string|null: false|
 |first_name_yomi|string|null: false|
 |last_name|string|null: false|
+|last_name_yomi|string|null: false|
 |birthday|date|null: false|
 |password|string|null: false|
 |mail_address|string|null: false|

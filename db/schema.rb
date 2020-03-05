@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_072056) do
     t.string "first_name_yomi", null: false
     t.string "last_name", null: false
     t.string "last_name_yomi", null: false
-    t.date "birthday"
-    t.integer "phone_num", null: false
+    t.date "birthday", null: false
+    t.integer "phone_num"
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false

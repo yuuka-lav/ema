@@ -9,8 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name_yomi,    null: false
       t.string :last_name,          null: false
       t.string :last_name_yomi,     null: false
-      t.date   :birthday           
-      t.integer :phone_num,         null: false
+      t.date :birthday,             null: false
+      t.integer :phone_num
       t.string :prefecture,         null: false
       t.string :city,               null: false
       t.string :address,            null: false

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'items#index'
-  resources :items do
+  resources :items, only: :show do
     collection do
       get 'confirm'
     end

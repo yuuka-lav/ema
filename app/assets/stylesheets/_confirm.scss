@@ -1,162 +1,136 @@
-.b-contents{
-  height: 100%;
-  width: 100%;
-  background: #f5f5f5;
-  .b-header{
-    height: 128px;
-    text-align: center;
-    &__img{
-      margin-top: 40px;
+.b-main{
+  .b-items{
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+    &__head{
+      height: 97px;
+      line-height: 97px;
+      font-size: 22px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
     }
-  }
-  .b-main{
-    .b-items{
-      width: 700px;
-      background-color: white;
-      margin: 0 auto;
-      &__head{
-        height: 97px;
-        line-height: 97px;
-        font-size: 22px;
-        text-align: center;
-        border-bottom: 1px solid #f5f5f5;
-      }
-      &__buy-item{
-        height: 145px;
-        border-bottom: 1px solid #f5f5f5;
+    &__buy-item{
+      height: 145px;
+      border-bottom: 1px solid #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__box{
+        width: 343px;
+        height: 80px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        &__box{
-          width: 343px;
+        &--img{
+          width: 80px;
           height: 80px;
-          display: flex;
-          &--img{
-            width: 80px;
-            height: 80px;
-            background-color: gray;
-            text-align: center;
-            line-height: 80px;
+          background-color: gray;
+          text-align: center;
+          line-height: 80px;
+        }
+        &--text{
+          margin-left: 16px;
+          .b-item-name{
+            font-size: 14px;
+            padding: 0 0 8px;
+            line-height: 1.5;
           }
-          &--text{
-            margin-left: 16px;
-            .b-item-name{
-              font-size: 14px;
-              padding: 0 0 8px;
-              line-height: 1.5;
-            }
-            .b-item-price{
-              font-size: 15px;
-              &__fee{
-                font-size: 12px;
-              }
+          .b-item-price{
+            font-size: 15px;
+            &__fee{
+              font-size: 12px;
             }
           }
         }
       }
-      .b-buy-item{
-        height: calc(750px - 244px);
-        display: flex;
-        justify-content: center;
-        &__inner{
-          width: 343px;
-          height: 100%;
-          .b-price-table{
+    }
+    .b-buy-item{
+      height: calc(750px - 244px);
+      display: flex;
+      justify-content: center;
+      &__inner{
+        width: 343px;
+        height: 100%;
+        .b-price-table{
+          display: flex;
+          justify-content: space-between;
+          font-size: 24px;
+          padding-top: 24px;
+        }
+        .b-buy-point{
+          margin-top: 24px;
+          display: flex;
+          border-bottom: 1px solid #f5f5f5;
+          padding-bottom: 24px;
+          &__box{
+            width: 17px;
+            height: 17px;
+            background-color: #a0a0a0;
+            border-radius: 3px;
+          }
+          &__text{
+            font-size: 14px;
+            padding-left: 14px;
+            line-height: 17px;
+            color: #a0a0a0;
+          }
+        }
+        .b-buy-content{
+          padding: 24px 0;
+          border-bottom: 1px solid #f5f5f5;
+          .b-buy-info{
+            margin-top: 8px;
+            font-size: 14px;
+            display: flex;
+            color: #0099e8;
+            a{
+              text-decoration: none;
+              color: #0099e8;
+            }
+            &__text{
+              margin-left: 5px;
+            }
+            &__text:hover{
+              text-decoration: underline;
+            }
+
+          }
+        }
+        .b-user-info{
+          padding: 24px 0;
+          border-bottom: 1px solid #f5f5f5;
+          margin-bottom: 24px;
+          &__text{
             display: flex;
             justify-content: space-between;
-            font-size: 24px;
-            padding-top: 24px;
-          }
-          .b-buy-point{
-            margin-top: 24px;
-            display: flex;
-            border-bottom: 1px solid #f5f5f5;
-            padding-bottom: 24px;
-            &__box{
-              width: 17px;
-              height: 17px;
-              background-color: #a0a0a0;
-              border-radius: 3px;
-            }
-            &__text{
+            &--left{
               font-size: 14px;
-              padding-left: 14px;
-              line-height: 17px;
-              color: #a0a0a0;
             }
-          }
-          .b-buy-content{
-            padding: 24px 0;
-            border-bottom: 1px solid #f5f5f5;
-            .b-buy-info{
-              margin-top: 8px;
+            &--right{
               font-size: 14px;
-              display: flex;
-              color: #0099e8;
               a{
-                text-decoration: none;
                 color: #0099e8;
+                text-decoration: none;
               }
-              &__text{
-                margin-left: 5px;
-              }
-              &__text:hover{
-                text-decoration: underline;
-              }
-
+            }
+            &--right:hover{
+              text-decoration: underline;
             }
           }
-          .b-user-info{
-            padding: 24px 0;
-            border-bottom: 1px solid #f5f5f5;
-            margin-bottom: 24px;
-            &__text{
-              display: flex;
-              justify-content: space-between;
-              &--left{
-                font-size: 14px;
-              }
-              &--right{
-                font-size: 14px;
-                a{
-                  color: #0099e8;
-                  text-decoration: none;
-                }
-              }
-              &--right:hover{
-                text-decoration: underline;
-              }
-            }
-            &__area{
-              margin-top: 8px;
-              font-size: 14px;
-            }
-          }
-          .b-buy-btn{
-            height: 50px;
-            width: 343px;
-            background-color: #888;
-            border: 1px solid #888;
-            color: #fff;
-            text-align: center;
-            line-height: 50px;
+          &__area{
+            margin-top: 8px;
+            font-size: 14px;
           }
         }
+        .b-buy-btn{
+          height: 50px;
+          width: 343px;
+          background-color: #888;
+          border: 1px solid #888;
+          color: #fff;
+          text-align: center;
+          line-height: 50px;
+        }
       }
-    }
-  }
-  .b-footer{
-    height: 220px;
-    text-align: center;
-    &__nav{
-      font-size: 12px;
-      padding-top: 25px;
-      &--li{
-        margin: 16px 0 0;
-      }
-    }
-    &__logo{
-      margin: 30px auto 0;
     }
   }
 }

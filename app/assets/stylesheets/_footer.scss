@@ -1,0 +1,14 @@
+.o-footer{
+  height: 220px;
+  text-align: center;
+  &__nav{
+    font-size: 12px;
+    padding-top: 25px;
+    &--li{
+      margin: 16px 0 0;
+    }
+  }
+  &__logo{
+    margin: 30px auto 0;
+  }
+}

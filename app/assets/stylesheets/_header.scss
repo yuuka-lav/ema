@@ -1,0 +1,13 @@
+.o-contents{
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+  position: relative;
+  .o-header{
+    height: 128px;
+    text-align: center;
+    &__img{
+      margin-top: 40px;
+    }
+  }
+}

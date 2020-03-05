@@ -2,7 +2,7 @@
   .t-header
     .t-header__main
       .t-header__main__img
-        %a{herf:"#"}
+        = link_to "#" do
           =image_tag"logo.png",size: "140x40", class: "img"
       .t-header__main__box
         %form{:action => "/", :method => "post"}
@@ -12,14 +12,18 @@
     .t-header__nav
       %ul.t-header__nav__left
         %li.t-header__nav__left--item
-          %a{href:"#" }カテゴリー
+          = link_to "#" do
+            カテゴリー
         %li.t-header__nav__left--item
-          %a{href:"#" }ブランド
+          = link_to "#" do
+            ブランド
       %ul.t-header__nav__right
         %li.t-header__nav__right--item2
-          %a{href:"#" }ログイン
+          = link_to "#" do
+            ログイン
         %li.t-header__nav__right--item2
-          %a{href:"#" }新規会員登録
+          = link_to "#" do
+            新規会員登録
 .t-contents
   .t-content
     .t-content__box
@@ -30,9 +34,9 @@
         %p emaはだれでもかんたんに出品・購入できる
         %p フリマアプリです
       .t-content__box__btn
-        %a{href:"#"}
+        = link_to "#" do
           =image_tag"appstore-logo.png",size:"180x53",class:"logo"
-        %a{href:"#"}
+        = link_to "#" do
           =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
           
   .t-content1
@@ -73,9 +77,9 @@
         %br
         %a ほしかったあの商品に出会えるかもしれません。
       .t-content3__box__icon
-        %a{href:"#"}
+        = link_to "#" do
           =image_tag"appstore-logo.png",size:"180x53",class:"logo"
-        %a{href:"#"}
+        = link_to "#" do
           =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
   .t-content2
     .t-content2__title
@@ -123,11 +127,11 @@
       ピックアップカテゴリー
     .t-content4__box
       .t-content4__box__text
-        %a{ href: "#" }
+        = link_to "#" do
           新規投稿商品
       .t-content4__box__lists
         .t-content4__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content4__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f"
             .t-content4__box__lists__list__box
@@ -139,7 +143,7 @@
                 0
                 %p (税込)
         .t-content4__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content4__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"ff"
             .t-content4__box__lists__list__box
@@ -151,7 +155,7 @@
                 0
                 %p (税込)
         .t-content4__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content4__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"fff"
             .t-content4__box__lists__list__box
@@ -167,11 +171,11 @@
       ピックアップブランド
     .t-content5__box
       .t-content5__box__name
-        %a{ href: "#" }
+        = link_to "#" do
           アーカイバ
       .t-content5__box__lists
         .t-content5__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content5__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f1"
             .t-content5__box__lists__list__box
@@ -183,7 +187,7 @@
                 0
                 %p (税込)
         .t-content5__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content5__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"ff2"
             .t-content5__box__lists__list__box
@@ -195,7 +199,7 @@
                 0
                 %p (税込)
         .t-content5__box__lists__list
-          %a{href:"#"}
+          = link_to "#" do
             .t-content5__box__lists__list__img
               =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"fff3"
             .t-content5__box__lists__list__box
@@ -213,9 +217,9 @@
     %p.t-contents1__box__text
       今すぐ無料ダウンロード！
     .t-contents1__box__imag
-      %a{href:"#"}
+      = link_to "#" do
         =image_tag"appstore-logo.png",size:"180x53",class:"logo"
-      %a{href:"#"}
+      = link_to "#" do
         =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
 .t-footers
   %ul.t-footers__contents
@@ -251,10 +255,10 @@
         %li
           %a お知らせ
   .t-footers__logo
-    %a{href:"#"}
+    = link_to "#" do
       = image_tag"logo-white.png",size:"140x46",class:"eee"
   %p © EMA
-%a{href:"#"}
+= link_to "#" do
   .t-btn
     .t-btn__text
       出品する

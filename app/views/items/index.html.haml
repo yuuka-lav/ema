@@ -1,2 +1,262 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.t-headers
+  .t-header
+    .t-header__main
+      .t-header__main__img
+        %a{herf:"#"}
+          =image_tag"logo.png",size: "140x40", class: "img"
+      .t-header__main__box
+        %form{:action => "/", :method => "post"}
+          %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
+          %button{type:"submit",class:"t-header__main__box__submit"}
+            =image_tag"icon-search 1.png",size: "19x19", class: "imgs"
+    .t-header__nav
+      %ul.t-header__nav__left
+        %li.t-header__nav__left--item
+          %a{href:"#" }カテゴリー
+        %li.t-header__nav__left--item
+          %a{href:"#" }ブランド
+      %ul.t-header__nav__right
+        %li.t-header__nav__right--item2
+          %a{href:"#" }ログイン
+        %li.t-header__nav__right--item2
+          %a{href:"#" }新規会員登録
+.t-contents
+  .t-content
+    .t-content__box
+      .t-content__box__title
+        %br
+        %h2 人生を変えるフリマアプリ
+      .t-content__box__text
+        %p emaはだれでもかんたんに出品・購入できる
+        %p フリマアプリです
+      .t-content__box__btn
+        %a{href:"#"}
+          =image_tag"appstore-logo.png",size:"180x53",class:"logo"
+        %a{href:"#"}
+          =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
+          
+  .t-content1
+    %h2.t-content1__title
+      EMAが選ばれる３つの理由
+    %ul.t-content1__lists
+      %li.t-content1__lists__list
+        = image_tag"pict-reason-01.jpg",size: "262x262",class:"img1"
+        .t-content1__lists__list__text
+          3分ですぐに出品
+        .t-content1__lists__list__title
+          スマホで入力するだけで
+          %br
+          簡単に出品できる！
+      %li.t-content1__lists__list
+        = image_tag"pict-reason-02.jpg",size: "262x262",class:"img2"
+        .t-content1__lists__list__text
+          シンプルで使いやすい
+        .t-content1__lists__list__title
+          めんどくさい入力は必要なく、
+          %br
+          検索も購入もスムーズ！
+      %li.t-content1__lists__list
+        = image_tag"pict-reason-03.jpg",size: "262x262",class:"img3"
+        .t-content1__lists__list__text
+          手数料・業界最安
+        .t-content1__lists__list__title
+          最大3%でお得に出品&購入！
+
+  .t-content3
+    .t-content3__box
+      .t-content3__box__title
+        %a 会員数日本一位
+      .t-content3__box__text
+        %a FURIMAは、フリマアプリで最も人気。
+        %br
+        %a 出品・購入回数も業界最多です！
+        %br
+        %a ほしかったあの商品に出会えるかもしれません。
+      .t-content3__box__icon
+        %a{href:"#"}
+          =image_tag"appstore-logo.png",size:"180x53",class:"logo"
+        %a{href:"#"}
+          =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
+  .t-content2
+    .t-content2__title
+      EMAの特徴
+    .t-content2__lists
+      .t-content2__lists__list
+        = image_tag"icon-01.png",size: "138x213",class:"t-content2__lists__list--img"
+        .t-content2__lists__list__title
+          簡単に売り買いできる
+        .t-content2__lists__list__text
+          スマホひとつで、いつで
+          %br
+          もどこでも簡単に出品・
+          %br
+          購入が可能！
+      .t-content2__lists__list
+        = image_tag"icon-02.png",size: "138x213",class:"t-content2__lists__list--img"
+        .t-content2__lists__list__title
+          売上金は即日振込みに
+          %br
+          対応
+        .t-content2__lists__list__text
+          午前9時までに振込を依頼
+          %br
+          いただければ、翌日に指
+          %br
+          定の口座に入金いたしま
+          %br
+          す!
+      .t-content2__lists__list
+        = image_tag"icon-04.png",size: "138x213",class:"t-content2__lists__list--img"
+        .t-content2__lists__list__title
+          様々な支払いに対応
+        .t-content2__lists__list__text
+          お支払いは、クレジット
+          %br
+          カードだけでなく、ポイ
+          %br
+          ントや売上金など多彩な
+          %br
+          方法があります。
+  
+  .t-content4
+    .t-content4__title
+      ピックアップカテゴリー
+    .t-content4__box
+      .t-content4__box__text
+        %a{ href: "#" }
+          新規投稿商品
+      .t-content4__box__lists
+        .t-content4__box__lists__list
+          %a{href:"#"}
+            .t-content4__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f"
+            .t-content4__box__lists__list__box
+              .t-content4__box__lists__list__box--name
+                %a product1
+              .t-content4__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+        .t-content4__box__lists__list
+          %a{href:"#"}
+            .t-content4__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"ff"
+            .t-content4__box__lists__list__box
+              .t-content4__box__lists__list__box--name
+                %a product2
+              .t-content4__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+        .t-content4__box__lists__list
+          %a{href:"#"}
+            .t-content4__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"fff"
+            .t-content4__box__lists__list__box
+              .t-content4__box__lists__list__box--name
+                %a product3
+              .t-content4__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+  .t-content5
+    .t-content5__title
+      ピックアップブランド
+    .t-content5__box
+      .t-content5__box__name
+        %a{ href: "#" }
+          アーカイバ
+      .t-content5__box__lists
+        .t-content5__box__lists__list
+          %a{href:"#"}
+            .t-content5__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f1"
+            .t-content5__box__lists__list__box
+              .t-content5__box__lists__list__box--name
+                %a product1
+              .t-content5__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+        .t-content5__box__lists__list
+          %a{href:"#"}
+            .t-content5__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"ff2"
+            .t-content5__box__lists__list__box
+              .t-content5__box__lists__list__box--name
+                %a product2
+              .t-content5__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+        .t-content5__box__lists__list
+          %a{href:"#"}
+            .t-content5__box__lists__list__img
+              =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"fff3"
+            .t-content5__box__lists__list__box
+              .t-content5__box__lists__list__box--name
+                %a product3
+              .t-content5__box__lists__list__box__deta
+                %a 10000円
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+.t-contents1
+  .t-contents1__box
+    %h2.t-contents1__box__title
+      だれでも、かんたん、人生を変えるフリマアプリ
+    %p.t-contents1__box__text
+      今すぐ無料ダウンロード！
+    .t-contents1__box__imag
+      %a{href:"#"}
+        =image_tag"appstore-logo.png",size:"180x53",class:"logo"
+      %a{href:"#"}
+        =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
+.t-footers
+  %ul.t-footers__contents
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        EMAについて
+      %ul 
+        %li
+          %a 会社概要(運営会社)
+        %li
+          %a プライバシーポリシー
+        %li
+          %a FURIMA利用規約
+        %li
+          %a ポイントに関する特約
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        FURIMAを見る
+      %ul 
+        %li
+          %a カテゴリー一覧
+        %li
+          %a ブランド一覧
+        %li
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        ヘルプ＆ガイド
+      %ul 
+        %li
+          %a FURIMAガイド
+        %li
+          %a FURIMAロゴ利用ガイドライン
+        %li
+          %a お知らせ
+  .t-footers__logo
+    %a{href:"#"}
+      = image_tag"logo-white.png",size:"140x46",class:"eee"
+  %p © EMA
+%a{href:"#"}
+  .t-btn
+    .t-btn__text
+      出品する
+    =image_tag"icon_camera.png",size:"54x54",class:"t-btn__camera"
+

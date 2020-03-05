@@ -1,0 +1,67 @@
+.b-contents
+  .b-header
+    = link_to "#" do
+      = image_tag "logo.png",size:"185x49",class:"b-header__img"
+  .b-main
+    .b-items
+      %h2.b-items__head
+        購入内容の確認
+      .b-items__buy-item
+        .b-items__buy-item__box
+          .b-items__buy-item__box--img
+            画像
+          .b-items__buy-item__box--text
+            .b-item-name
+              商品名
+            .b-item-price
+              %span
+                ¥000
+              %span.b-item-price__fee
+                (税込) 送料込み
+      .b-buy-item
+        .b-buy-item__inner
+          .b-price-table
+            .b-price-table__cell1
+              支払い金額
+            .b-price-table__cell2
+              ¥000
+          .b-buy-point
+            .b-buy-point__box
+            .b-buy-point__text
+              ポイントを使用(所持ポイント:P0)
+          .b-buy-content
+            %h3
+              支払い方法
+            .b-buy-info
+              .b-buy-info__icon
+                = icon('fa', 'plus-circle')
+              .b-buy-info__text
+                = link_to "#" do
+                  登録してください
+          .b-user-info
+            .b-user-info__text
+              .b-user-info__text--left
+                配送先
+              %span.b-user-info__text--right
+                = link_to "#" do
+                  変更する
+            .b-user-info__area
+              %p
+                〒000-0000
+                %br
+                xx県xx市xxxx
+                %br
+                名前
+          .b-buy-btn
+            購入する
+  .b-footer
+    %ul.b-footer__nav
+      %li
+        プライバシーポリシー
+      %li.b-footer__nav--li
+        メルカリ利用規約
+      %li.b-footer__nav--li
+        特定商取引に関する表記
+    .b-footer__logo
+      = link_to "#" do
+        = image_tag "logo-white.png",size:"185x49",class:"b-footer__logo--img"

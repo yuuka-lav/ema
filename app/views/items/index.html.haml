@@ -3,7 +3,7 @@
     .t-header__main
       .t-header__main__img
         = link_to root_path do
-          =image_tag"logo.png",size: "140x40", class: "img"
+          =image_tag'logo.png', size: "140x40", class: "img"
       .t-header__main__box
         %form{:action => "/", :method => "post"}
           %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}

@@ -1,0 +1,147 @@
+.is-whapper
+  = render "more/header"
+  .is-contents
+    .sell-image-box
+      .title
+        .title__name
+          出品画像
+        .title__need
+          必須
+      .text
+        最大10枚までアップロードできます
+      .image
+        .image__icon
+          = link_to "#" do
+            = image_tag '/assets/icon_camera.png', :size => '40x40'
+        .image__text1
+          ドラックアンドドロップ
+        .image__text2
+          またはクリックして画像をアップロード
+    .item-info-box
+      .item-name
+        .item-name__title
+          商品名
+        .item-name__need
+          必須
+      .item-nbox
+        %input.item-nbox__form{:name => "item-name", :placeholder => "40文字以内", :type => "text"}
+      .item-details
+        .item-details__name
+          商品の説明
+        .item-details__need
+          必須
+      .item-dbox
+        %textarea.item-dbox__form{:name => "item-detail-name", :placeholder => "商品の説明(必須1,000文字以内）\r\n（色、素材、重さ、定価、注意点）\r\n例）2010年頃に１万円で購入したジャケットです。\r\nライトグレーで傷はありません。合わせやすいのでおすすめです。", :type => "text"}
+      .text-count
+        0/1000
+    .item-type-box
+      .type-text
+        商品の詳細
+      .category
+        .category__title
+          カテゴリー
+        .category__need
+          必須
+      .item-cbox
+        %select.item-cbox__list{:required => ""}
+          %option{:hidden => "", :value => ""} 選択してください
+          %option{:value => "1"} レディース
+          %option{:value => "2"} メンズ
+          %option{:value => "3"} ベビー・キッズ
+          %option{:value => "4"} インテリア・住まい・小物
+          %option{:value => "5"} 本・音楽・ゲーム
+      .brand
+        .brand__title
+          ブランド
+        .brand__need
+          任意
+      .item-bbox
+        %input.item-bbox__form{:name => "brand-name", :placeholder => "例）シャネル", :type => "text"}
+      .status
+        .status__title
+          商品の状態
+        .status__need
+          必須
+      .item-sbox
+        %select.item-sbox__list{:required => ""}
+          %option{:hidden => "", :value => ""} 選択してください
+          %option{:value => "1"} 新品未使用
+          %option{:value => "2"} 未使用に近い
+          %option{:value => "3"} 目立った傷や汚れなし
+          %option{:value => "4"} やや傷や汚れあり
+          %option{:value => "5"} 傷や汚れあり
+          %option{:value => "6"} 全体的に状態が悪い
+    .item-deliver-box
+      .deliver-text
+        配送について
+      .deliver-fee
+        .deliver-fee__title
+          配送料の負担
+        .deliver-fee__need
+          必須
+      .item-dvbox
+        %select.item-dvbox__list{:required => ""}
+          %option{:hidden => "", :value => ""} 選択してください
+          %option{:value => "1"} 送料込み（出品者負担）
+          %option{:value => "2"} 着払い（購入者負担）
+      .deliver-area
+        .deliver-area__title
+          配送料場所
+        .deliver-area__need
+          必須
+      .item-abox
+        %select.item-abox__list{:required => ""}
+          %option{:hidden => "", :value => ""} 選択してください
+          %option{:value => "1"} と
+          %option{:value => "2"} ど
+          %option{:value => "3"} う
+          %option{:value => "4"} ふ
+          %option{:value => "5"} け
+          %option{:value => "6"} ん
+      .deliver-date
+        .deliver-date__title
+          配送までの日数
+        .deliver-date__need
+          必須
+      .item-datebox
+        %select.item-datebox__list{:required => ""}
+          %option{:hidden => "", :value => ""} 選択してください
+          %option{:value => "1"} １〜２日で配達
+          %option{:value => "2"} ２〜３日で配達
+          %option{:value => "3"} ４〜７日で配達
+    .item-sell-box
+      .price-text
+        価格（¥300〜9,999,999）
+      .sell-prices
+        .sell-price
+          .sell-price__title
+            販売価格
+          .sell-price__need
+            必須
+        .sell-box
+          .sell-box__text
+            ¥   
+          %input.sell-box__form{:name => "item-name", :placeholder => "0", :type => "number"}
+      .sell-margin
+        .sell-margin__text
+          販売手数料 (10%)
+        .sell-margin__stick
+          ー
+      %hr.is-border
+      .sell-benefit
+        .sell-margin__text
+          販売履歴
+        .sell-margin__stick
+          ー
+    .sell-btn
+      = link_to "#", class: "sell-btn__exhibition" do
+        .sell-btn__text
+          出品する
+    .return-btn
+      = link_to "/", class: "return-btn__return" do
+        .return-btn__text
+          もどる
+    .bottom-text
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+  = render "more/footer"
+

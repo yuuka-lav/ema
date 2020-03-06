@@ -1,0 +1,21 @@
+= render "more/header"
+
+.wrapper
+
+ .mp-sidebar
+  .mp-sidecontents
+   %ul
+    %li
+     %a出品する
+    %li
+     %aいいね一覧
+    %li
+     = link_to "クレジットカード", card_users_path, class: 'a'
+    %li
+     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'a'
+     
+
+ .mp-main
+  .mp-maincontents
+ 
+= render "more/footer"

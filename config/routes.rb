@@ -6,5 +6,9 @@ Rails.application.routes.draw do
       get 'confirm'
     end
   end
-  resources :users, only: :show 
+  resources :users, only: :show do
+    collection do
+      get 'card'
+    end
+  end
 end

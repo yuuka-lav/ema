@@ -1,0 +1,68 @@
+.o-contents
+  = render "more/header"
+  .c-main
+    .c-main__content
+      .c-main__content--head
+        %h2.c-title
+          支払い方法
+      .c-form
+        .c-form__group
+          .c-input-title
+            .c-input-title__title
+              カード番号
+            %span.c-input-title__a
+              必須
+          %input{type: "text",placeholder: "半角数字のみ",class: "c-form__group--input"}
+          .c-form__group--images
+          .c-form__group--expire
+            .c-expire-title
+              .c-expire-title__title
+                有効期限
+              %span.c-expire-title__a
+                必須
+            .c-select
+            .c-select__left
+              %select.c-select__left--month
+                %option{value: "01"} 01
+                %option{value: "02"} 02
+                %option{value: "03"} 03
+                %option{value: "04"} 04
+                %option{value: "05"} 05
+                %option{value: "06"} 06
+                %option{value: "07"} 07
+                %option{value: "08"} 08
+                %option{value: "09"} 09
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+              %span.c-select__left--text
+                月
+            .c-select__right
+              %select.c-select__right--year
+                %option{value:  "20"} 20
+                %option{value: "21"} 21
+                %option{value: "22"} 22
+                %option{value: "23"} 23
+                %option{value: "24"} 24
+                %option{value: "25"} 25
+                %option{value: "26"} 26
+                %option{value: "27"} 27
+                %option{value: "28"} 28
+                %option{value: "29"} 29
+                %option{value: "30"} 30
+              %span.c-select__right--text
+                年
+          .c-form__group--code
+            .c-code-title
+              .c-code-title__title
+                セキュリティコード
+              .c-code-title__a
+                必須
+            %input{type: "text",placeholder: "カード背面4桁もしくは3桁の番号",class: "c-code-input"}
+            .c-question
+              = icon('fa', 'question-circle')
+              .c-question__text
+                カード裏面の番号とは？
+            %button{type: "submit", class:'c-btn'}
+              登録する
+  = render "more/footer"

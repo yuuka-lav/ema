@@ -11,7 +11,7 @@
 |birthday|date|null: false|
 |password|string|null: false|
 |mail_address|string|null: false|
-|phone_num|integer|null: false|
+|phone_num|integer
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|

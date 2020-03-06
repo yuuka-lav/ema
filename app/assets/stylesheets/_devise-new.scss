@@ -1,0 +1,138 @@
+.login{
+  .single-main{
+    background-color: #f5f5f5;
+    .main-center{
+      width: 700px;
+      height: 1800px;
+      margin: 0 auto;
+      
+      .main-center__title{
+        height: 97px;
+        line-height: 97px;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        background-color: white;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .main-center__box{
+        background-color: white;
+        text-align: center;
+        .need{
+          margin-left: 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          background-color: #EA352D;
+        }
+        .pass-attention{
+          color: rgb(155, 155, 155);
+          margin: 5px 0 40px 0;
+          font-size: 14px;
+        }
+        input{
+          height: 40px;
+          border-radius: 4px;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        #user_name {
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_first_name{
+          width: 195px;
+          margin: 5px 0 40px 0;
+        }
+        #user_last_name{
+          width: 195px;
+          margin: 5px 0 40px 0;
+        }
+        #user_first_name_yomi{
+          width: 195px;
+          margin: 5px 0 40px 0;
+        }
+        #user_last_name_yomi{
+          width: 195px;
+          margin: 5px 0 40px 0;
+        }
+        #user_email{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_password{
+          width: 400px;
+        }
+        #user_password_confirmation{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        .serect-box {
+          margin: 15px auto;
+        }
+        .serect-box select {
+          cursor: pointer;
+          text-indent: 0.01px;
+          text-overflow: ellipsis;
+          outline: none;
+          background-image: none;
+          box-shadow: none;
+          -webkit-appearance: none;
+          appearance: none;
+          padding: 8px 8px 8px 38px;
+          margin: 5px 0;
+        }
+        #user_zipcode{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_prefecture{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_city{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_address{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_building{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        #user_phone_num{
+          width: 400px;
+          margin: 5px 0 40px 0;
+        }
+        .actions{
+          height: 150px;
+          a{
+            color: #3CCACE;
+            font-size: 14px;
+            text-decoration: none; 
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+          .submit input{
+            line-height: 30px;
+            background: #3CCACE;
+            border: 1px solid #3CCACE;
+            color: #fff;
+            width: 57%;
+            font-size: 18px;
+            margin-bottom: 20px;
+            cursor: pointer;
+          }
+          .submit input:hover{
+            
+          }
+        }
+      }
+    }
+  }
+}

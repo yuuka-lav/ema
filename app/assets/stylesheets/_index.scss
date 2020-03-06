@@ -109,7 +109,6 @@
       color: #fff;
     }
     &__btn{
-
     }
     
   }
@@ -413,4 +412,7 @@
   &__camera{
     vertical-align: bottom;
   }
+}
+.t-btn:hover{
+  opacity: 0.9;
 }

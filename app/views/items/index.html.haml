@@ -2,7 +2,7 @@
   .t-header
     .t-header__main
       .t-header__main__img
-        = link_to "#" do
+        = link_to root_path do
           =image_tag"logo.png",size: "140x40", class: "img"
       .t-header__main__box
         %form{:action => "/", :method => "post"}
@@ -255,7 +255,7 @@
         %li
           %a お知らせ
   .t-footers__logo
-    = link_to "#" do
+    = link_to root_path do
       = image_tag"logo-white.png",size:"140x46",class:"eee"
   %p © EMA
 = link_to "#" do

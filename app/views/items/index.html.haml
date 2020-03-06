@@ -18,12 +18,17 @@
           = link_to "#" do
             ブランド
       %ul.t-header__nav__right
-        %li.t-header__nav__right--item2
-          = link_to new_user_session_path, class: "a" do
-            ログイン
-        %li.t-header__nav__right--item2
-          = link_to new_user_registration_path,class: "a" do
-            新規会員登録
+        - if user_signed_in?
+          %li.t-header__nav__right--item2
+            = link_to user_path(current_user.id), class: "a" do
+              マイページ
+        - else
+          %li.t-header__nav__right--item2
+            = link_to new_user_session_path, class: "a" do
+              ログイン
+          %li.t-header__nav__right--item2
+            = link_to new_user_registration_path,class: "a" do
+              新規会員登録
 .t-contents
   .t-content
     .t-content__box

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :items, only: [:show, :new] do
+  resources :items, only: [:index, :show, :new] do
     collection do
       get 'confirm'
     end

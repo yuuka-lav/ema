@@ -15,7 +15,7 @@
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|building|string|null: false|
+|building|string|
 |zipcode|integer|null: false|
 ### Association
 has_one :credit_card

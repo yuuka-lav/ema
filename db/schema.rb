@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_115550) do
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false
-    t.string "building"
+    t.string "building", null: false
     t.integer "zipcode", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

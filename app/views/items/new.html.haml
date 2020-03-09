@@ -8,16 +8,24 @@
             出品画像
           .title__need
             必須
-      .text
+        .text
           最大10枚までアップロードできます
-        .image
-          .image__icon
-            = link_to "#" do
-              = image_tag 'icon_camera.png', size: '40x40'
-          .image__text1
-            ドラックアンドドロップ
-          .image__text2
-            またはクリックして画像をアップロード
+          #image
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = form.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+          -# .image
+          -#   .image__icon
+          -#     = link_to "#" do
+          -#       = image_tag 'icon_camera.png', size: '40x40'
+          -#   .image__text1
+          -#     ドラックアンドドロップ
+          -#   .image__text2
+          -#     またはクリックして画像をアップロード
       .item-info-box
         .item-name
           .item-name__title

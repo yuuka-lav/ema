@@ -5,7 +5,7 @@
         = link_to root_path do
           =image_tag'logo.png', size: "140x40", class: "img"
       .t-header__main__box
-        %form{:action => "/", :method => "post"}
+        %form{:action => "/", :method => "get"}
           %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
           %button{type:"submit",class:"t-header__main__box__submit"}
             =image_tag"icon-search 1.png",size: "19x19", class: "imgs"

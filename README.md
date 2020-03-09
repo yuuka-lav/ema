@@ -10,7 +10,7 @@
 |last_name_yomi|string|null: false|
 |birthday|date|null: false|
 |password|string|null: false|
-|mail_address|string|null: false|
+|mail_address|string|null: false, index: true|
 |phone_num|integer
 |prefecture|string|null: false|
 |city|string|null: false|

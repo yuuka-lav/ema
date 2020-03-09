@@ -69,7 +69,7 @@ belongs_to :item
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 belongs_to :item

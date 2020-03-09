@@ -1,109 +1,190 @@
-.main
-  .show-main
-    .content
-      .content__top
-        .item-box
-          .item-box__name
-            product1
-          .item-box__photo
-            %span
+.t-headers
+  .t-header
+    .t-header__main
+      .t-header__main__img
+        = link_to root_path do
+          =image_tag'logo.png', size: "140x40", class: "img"
+      .t-header__main__box
+        %form{:action => "/", :method => "post"}
+          %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
+          %button{type:"submit",class:"t-header__main__box__submit"}
+            =image_tag"icon-search 1.png",size: "19x19", class: "imgs"
+    .t-header__nav
+      %ul.t-header__nav__left
+        %li.t-header__nav__left--item
+          = link_to "#" do
+            カテゴリー
+        %li.t-header__nav__left--item
+          = link_to "#" do
+            ブランド
+      %ul.t-header__nav__right
+        - if user_signed_in?
+          %li.t-header__nav__right--item2
+            = link_to user_path(current_user.id), class: "a" do
+              マイページ
+        - else
+          %li.t-header__nav__right--item2
+            = link_to new_user_session_path, class: "a" do
+              ログイン
+          %li.t-header__nav__right--item2
+            = link_to new_user_registration_path,class: "a" do
+              新規会員登録
+  .main
+    .show-main
+      .content
+        .content__top
+          .item-box
+            .item-box__name
+              = @item.name
+            .item-box__photo
               %span
-                = image_tag src="/assets/image-1.png", size: "620x443"
-              %ul
-                %li
-                  = image_tag src="/assets/image-1.png", size: "140x97"
-                %li
-                  = image_tag src="/assets/image-2.png", size: "140x97"
-                %li
-                  = image_tag src="/assets/image-3.png", size: "140x97"
-          .item-box__price
-            ¥10000
-            .item-box__price__detail
-              %span
-                (税込)
-              %span
-                送料込み
-          .tablebox-title
-            product1
-          .info-table 
-            %table
-              %tbody
-                %tr
-                  %th
-                    出品者
-                  %td
-                    = link_to do
-                      hoge
-                %tr
-                  %th
-                    カテゴリー
-                  %td
-                    = link_to do
-                      レディース
-                    %br
-                    = link_to do
-                      トップス
-                    %br
-                    = link_to do
-                      Tシャツ/カットソー(半袖/袖なし)
-    
-                %tr
-                  %th
-                    ブランド
-                  %td
-                %tr
-                  %th
-                    商品のサイズ
-                  %td
-                %tr
-                  %th
-                    商品の状態
-                  %td
-                    = link_to do
-                      新品/未使用
-                %tr
-                  %th
-                    配送料の負担	
-                  %td
-                    = link_to do
-                      送料込み（出品者負担）
-                %tr
-                  %th
-                    発送元の地域
-                  %td
-                    = link_to do
-                      青森県
-                %tr
-                  %th
-                    発送日の目安	
-                  %td
-                    = link_to do
-                      1-2日で発送
-          .favorite
-            %i.fa.fa-star
-            お気に入り
-        .comment-box
-          .comment-box__text
-            %textarea
-              :preserve
+                %span
+                  = image_tag src="/assets/image-1.png", size: "620x443"
+                %ul
+                  %li
+                    = image_tag src="/assets/image-1.png", size: "140x97"
+                  %li
+                    = image_tag src="/assets/image-2.png", size: "140x97"
+                  %li
+                    = image_tag src="/assets/image-3.png", size: "140x97"
+            .item-box__price
+              ¥
+              = @item.price
+              .item-box__price__detail
+                %span
+                  (税込)
+                %span
+                  送料込み
+            .tablebox-title
+              = @item.name
+            .info-table 
+              %table
+                %tbody
+                  %tr
+                    %th
+                      出品者
+                    %td
+                      = link_to do
+                        = @item.user.name
+                  %tr
+                    %th
+                      カテゴリー
+                    %td
+                      = link_to do
+                        レディース
+                      %br
+                      = link_to do
+                        トップス
+                      %br
+                      = link_to do
+                        Tシャツ/カットソー(半袖/袖なし)
+      
+                  %tr
+                    %th
+                      ブランド
+                    %td
+                  %tr
+                    %th
+                      商品のサイズ
+                    %td
+                  %tr
+                    %th
+                      商品の状態
+                    %td
+                      = link_to do
+                        新品/未使用
+                  %tr
+                    %th
+                      配送料の負担	
+                    %td
+                      = link_to do
+                        送料込み（出品者負担）
+                  %tr
+                    %th
+                      発送元の地域
+                    %td
+                      = link_to do
+                        青森県
+                  %tr
+                    %th
+                      発送日の目安	
+                    %td
+                      = link_to do
+                        1-2日で発送
+            .favorite
+              %i.fa.fa-star
+              お気に入り
+          .comment-box
+            .comment-box__text
+              %textarea
+                :preserve
+                
+            .comment-box__message
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            .comment-box__btn
+              %button#comment-btn 
+                %i.fa.fa-comment
+                コメントする
+        .link-page
+          .link-page__left
+            = link_to "#" do
+              %i.fa.fa-angle-left
+              前の商品
+          .link-page__right
+            = link_to "#" do
+              後ろの商品
+              %i.fa.fa-angle-right
               
-          .comment-box__message
-            相手のことを考え丁寧なコメントを心がけましょう。
-            %br
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          .comment-box__btn
-            %button#comment-btn 
-              %i.fa.fa-comment
-              コメントする
-      .link-page
-        .link-page__left
-          %a{:href => "#"} 
-            %i.fa.fa-angle-left
-            前の商品
-        .link-page__right
-          %a{:href => "#"} 
-            後ろの商品
-            %i.fa.fa-angle-right
-            
-      .look-item
-        %a{:href => "#"} レディースをもっと見る
+        .look-item
+          = link_to "#" do
+            レディースをもっと見る
+.t-contents1
+  .t-contents1__box
+    %h2.t-contents1__box__title
+      だれでも、かんたん、人生を変えるフリマアプリ
+    %p.t-contents1__box__text
+      今すぐ無料ダウンロード！
+    .t-contents1__box__imag
+      = link_to "https://www.apple.com/jp/ios/app-store/" do
+        =image_tag"appstore-logo.png",size:"180x53",class:"logo"
+      = link_to "https://play.google.com/store?hl=ja" do
+        =image_tag"Google-Play-png.png",size:"180x53",class:"logo"
+.t-footers
+  %ul.t-footers__contents
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        EMAについて
+      %ul 
+        %li
+          %a 会社概要(運営会社)
+        %li
+          %a プライバシーポリシー
+        %li
+          %a FURIMA利用規約
+        %li
+          %a ポイントに関する特約
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        FURIMAを見る
+      %ul 
+        %li
+          %a カテゴリー一覧
+        %li
+          %a ブランド一覧
+        %li
+    %li.t-footers__contents__content
+      %h2.t-footers__contents__content__title
+        ヘルプ＆ガイド
+      %ul 
+        %li
+          %a FURIMAガイド
+        %li
+          %a FURIMAロゴ利用ガイドライン
+        %li
+          %a お知らせ
+  .t-footers__logo
+    = link_to root_path do
+      = image_tag"logo-white.png",size:"140x46",class:"eee"
+  %p © EMA

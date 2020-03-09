@@ -1,6 +1,41 @@
 ja:
+  date:
+    order:
+      - :year
+      - :month
+      - :day
   activerecord:
-    attributes:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "を入力してください"
+              invalid: "を入力してください"
+            password:
+              blank: "を入力してください"
+            name:
+              blank: "を入力してください"
+            first_name:
+              blank: "を入力してください"
+              invalid: "を入力してください"
+            first_name_yomi:
+              blank: "を入力してください"
+              invalid: "を入力してください"
+            last_name:
+              blank: "を入力してください"
+              invalid: "を入力してください"
+            last_name_yomi:
+              blank: "を入力してください"
+              invalid: "を入力してください"
+            prefecture:
+              blank: "を入力してください"
+            city:
+              blank: "を入力してください"
+            address:
+              blank: "を入力してください"
+            zipcode:
+              blank: "を入力してください"
       user:
         current_password: "現在のパスワード"
         email: "メールアドレス"
@@ -65,3 +100,7 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
+
+
+
+

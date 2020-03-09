@@ -1,14 +1,11 @@
 = render "more/header"
 
 .wrapper
-
  .mp-sidebar
   .mp-sidecontents
    %ul
     %li
      = link_to "出品する", new_item_path, class: 'a'
-    %li
-     %aいいね一覧
     %li
      = link_to "クレジットカード", card_users_path, class: 'a'
     %li
@@ -16,6 +13,18 @@
      
 
  .mp-main
-  
+  .mp-main__title
+   出品した商品
+  .mp-item-box
+   - @items.each do |item|
+    = link_to "#" do
+     .mp-item
+      .mp-item__img
+       画像
+      .mp-item__name
+       = item.name
+  .mp-page
+   = paginate(@items)
  
 = render "more/footer"
+= render "more/put"

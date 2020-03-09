@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2020_03_06_115550) do
     t.string "last_name", null: false
     t.string "last_name_yomi", null: false
     t.date "birthday", null: false
-    t.integer "phone_num"
+    t.bigint "phone_num"
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false
-    t.string "building", null: false
+    t.string "building"
     t.integer "zipcode", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

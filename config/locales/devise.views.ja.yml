@@ -6,14 +6,20 @@ ja:
       - :day
   activerecord:
     errors:
+      messages:
+        record_invalid:
       models:
         user:
           attributes:
             email:
+              taken: "has already been taken"
               blank: "を入力してください"
               invalid: "を入力してください"
-            password:
+            password: 
               blank: "を入力してください"
+              too_short: "is too short (minimum is 6 characters)"
+            password_confirmation: 
+              confirmation: "doesn't match Password"
             name:
               blank: "を入力してください"
             first_name:
@@ -35,6 +41,8 @@ ja:
             address:
               blank: "を入力してください"
             zipcode:
+              blank: "を入力してください"
+            birthday:
               blank: "を入力してください"
       user:
         current_password: "現在のパスワード"

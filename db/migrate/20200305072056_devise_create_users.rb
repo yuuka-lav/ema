@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name,          null: false
       t.string :last_name_yomi,     null: false
       t.date :birthday,             null: false
-      t.integer :phone_num
+      t.integer :phone_num, limit: 8
       t.string :prefecture,         null: false
       t.string :city,               null: false
       t.string :address,            null: false

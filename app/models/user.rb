@@ -12,6 +12,4 @@ class User < ApplicationRecord
   validates :first_name_yomi, :last_name_yomi, format: { with: /\A[ァ-ンー－]+\z/ }
   validates :email, format: { with: /\A\S+@\S+\.\S+\z/ }
   
-  
-
 end

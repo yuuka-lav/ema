@@ -82,4 +82,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'kaminari'
 gem 'ancestry'
+gem 'payjp'
+gem 'dotenv-rails'
+gem "jquery-rails"
 

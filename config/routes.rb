@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   get 'card/show'
   devise_for :users
   root 'items#index'
-  resources :items, only: [:index, :new, :show] do
-    collection do
-      get 'confirm'
-    end
-  end
+  resources :items, only: [:index, :new, :show] 
   resources :users, only: :show 
   resources :card, only: [:new, :show] do
     collection do

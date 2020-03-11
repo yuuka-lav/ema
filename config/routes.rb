@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :items, only: [:index, :new, :create, :show] 
+  resources :items, only: [:index, :new, :create, :show] do
+    member do
+      get 'confirm', to: 'items#confirm'
+      post 'pay', to: 'items#pay'
+      get 'done', to: 'items#done'
+    end
+  end
   resources :users, only: :show 
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
-    end
-  end
-  resources :purchase, only: :index do
-    collection do
-      get 'index', to: 'purchase#index'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
     end
   end
 end

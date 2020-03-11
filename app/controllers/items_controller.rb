@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
     @parents = Category.all.order("id ASC").limit(14)
   end
   def create
+    puts Item.new
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save

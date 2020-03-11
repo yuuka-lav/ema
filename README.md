@@ -9,16 +9,15 @@
 |last_name|string|null: false|
 |last_name_yomi|string|null: false|
 |birthday|date|null: false|
-|password|string|null: false|
-|mail_address|string|null: false, index: true|
-|phone_num|integer
+|email|string|null: false, index: true|
+|phone_num|bigint|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string|
 |zipcode|integer|null: false|
 ### Association
-has_one :credit_card
+has_one :card
 has_many :items
 has_many :comments
 has_many :likes
@@ -45,14 +44,12 @@ belongs_to :user
 belongs_to :category
 belongs_to :brand
 
-## credit_cards table
+## cards table
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
-|expination_year|integer|null: false|
-|expination_month|integer|null: false|
-|security_code|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 belongs_to :user
 
@@ -82,27 +79,12 @@ belongs_to :item
 ### Association
 has_many :items
 
-## first_categorys table
+## categories table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
 ### Association
 has_many :items
-
-## second_categorys table
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-
-## third_categorys table
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
-### Association
 
 ## likes table
 |Column|Type|Options|

@@ -18,14 +18,6 @@
             = form.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :src, class: 'js-file'
-          -# .image
-          -#   .image__icon
-          -#     = link_to "#" do
-          -#       = image_tag 'icon_camera.png', size: '40x40'
-          -#   .image__text1
-          -#     ドラックアンドドロップ
-          -#   .image__text2
-          -#     またはクリックして画像をアップロード
       .item-info-box
         .item-name
           .item-name__title
@@ -51,17 +43,7 @@
             カテゴリー
           .category__need
             必須
-        
-        -# .item-cbox
-        -#   - @parents.each do |parent|
-        -#     =parent.name
-        -#   %select.item-cbox__list{:required => ""}
-        -#     %option{:hidden => "", :value => ""} 選択してください
-        -#     %option{:value => "1"} 
-        -#     %option{:value => "2"} メンズ
-        -#     %option{:value => "3"} ベビー・キッズ
-        -#     %option{:value => "4"} インテリア・住まい・小物
-        -#     %option{:value => "5"} 本・音楽・ゲーム
+        .item-cbox
         .brand
           .brand__title
             ブランド
@@ -86,10 +68,6 @@
             必須
         .item-dvbox
           = form.collection_select :deliverypays_id , Deliverypays.all, :id, :name
-          -# %select.item-dvbox__list{:required => ""}
-          -#   %option{:hidden => "", :value => ""} 選択してください
-          -#   %option{:value => "1"} 送料込み（出品者負担）
-          -#   %option{:value => "2"} 着払い（購入者負担）
         .deliver-area
           .deliver-area__title
             配送料場所
@@ -104,11 +82,6 @@
             必須
         .item-datebox
           = form.collection_select :deliverydate_id , Deliverydate.all, :id, :name
-          -# %select.item-datebox__list{:required => ""}
-          -#   %option{:hidden => "", :value => ""} 選択してください
-          -#   %option{:value => "1"} １〜２日で配達
-          -#   %option{:value => "2"} ２〜３日で配達
-          -#   %option{:value => "3"} ４〜７日で配達
       .item-sell-box
         .price-text
           価格（¥300〜9,999,999）

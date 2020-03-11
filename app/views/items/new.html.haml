@@ -51,14 +51,17 @@
             カテゴリー
           .category__need
             必須
-        .item-cbox
-          -# %select.item-cbox__list{:required => ""}
-          -#   %option{:hidden => "", :value => ""} 選択してください
-          -#   %option{:value => "1"} レディース
-          -#   %option{:value => "2"} メンズ
-          -#   %option{:value => "3"} ベビー・キッズ
-          -#   %option{:value => "4"} インテリア・住まい・小物
-          -#   %option{:value => "5"} 本・音楽・ゲーム
+        
+        -# .item-cbox
+        -#   - @parents.each do |parent|
+        -#     =parent.name
+        -#   %select.item-cbox__list{:required => ""}
+        -#     %option{:hidden => "", :value => ""} 選択してください
+        -#     %option{:value => "1"} 
+        -#     %option{:value => "2"} メンズ
+        -#     %option{:value => "3"} ベビー・キッズ
+        -#     %option{:value => "4"} インテリア・住まい・小物
+        -#     %option{:value => "5"} 本・音楽・ゲーム
         .brand
           .brand__title
             ブランド
@@ -72,14 +75,7 @@
           .status__need
             必須
         .item-sbox
-          -# %select.item-sbox__list{:required => ""}
-          -#   %option{:hidden => "", :value => ""} 選択してください
-          -#   %option{:value => "1"} 新品未使用
-          -#   %option{:value => "2"} 未使用に近い
-          -#   %option{:value => "3"} 目立った傷や汚れなし
-          -#   %option{:value => "4"} やや傷や汚れあり
-          -#   %option{:value => "5"} 傷や汚れあり
-          -#   %option{:value => "6"} 全体的に状態が悪い
+          = form.collection_select :condition_id, Condition.all, :id, :name
       .item-deliver-box
         .deliver-text
           配送について
@@ -89,6 +85,7 @@
           .deliver-fee__need
             必須
         .item-dvbox
+          = form.collection_select :deliverypays_id , Deliverypays.all, :id, :name
           -# %select.item-dvbox__list{:required => ""}
           -#   %option{:hidden => "", :value => ""} 選択してください
           -#   %option{:value => "1"} 送料込み（出品者負担）
@@ -99,20 +96,14 @@
           .deliver-area__need
             必須
         .item-abox
-          -# %select.item-abox__list{:required => ""}
-          -#   %option{:hidden => "", :value => ""} 選択してください
-          -#   %option{:value => "1"} と
-          -#   %option{:value => "2"} ど
-          -#   %option{:value => "3"} う
-          -#   %option{:value => "4"} ふ
-          -#   %option{:value => "5"} け
-          -#   %option{:value => "6"} ん
+          = form.collection_select :prefecture_id, Prefecture.all, :id, :name
         .deliver-date
           .deliver-date__title
             配送までの日数
           .deliver-date__need
             必須
         .item-datebox
+          = form.collection_select :deliverydate_id , Deliverydate.all, :id, :name
           -# %select.item-datebox__list{:required => ""}
           -#   %option{:hidden => "", :value => ""} 選択してください
           -#   %option{:value => "1"} １〜２日で配達

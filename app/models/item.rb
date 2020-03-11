@@ -3,10 +3,10 @@ class Item < ApplicationRecord
   belongs_to :user,optional: true
   has_many :images
   belongs_to :category,optional: true
-  belongs_to_active_hash :prefecture
-  belongs_to_active_hash :condition
-  belongs_to_active_hash :deliverypays
-  belongs_to_active_hash :deliverydate
+  belongs_to_active_hash :prefecture, foreign_key: true
+  belongs_to_active_hash :condition, foreign_key: true
+  belongs_to_active_hash :deliverypays, foreign_key: true
+  belongs_to_active_hash :deliverydate, foreign_key: true
   accepts_nested_attributes_for :images
 
   validates :name,    length: { in: 1..40 }

@@ -11,6 +11,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.date :delivery_date
       t.string :delivery_type
       t.integer :delivery_price
+      t.references :condition
+      t.references :deliverydate
+      t.references :deliverypays
+      t.references :prefecture
       t.timestamps
     end
   end

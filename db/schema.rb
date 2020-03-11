@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_022252) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "item_id"
@@ -46,16 +46,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_022252) do
     t.date "delivery_date"
     t.string "delivery_type"
     t.integer "delivery_price"
-    t.bigint "condition_id"
-    t.bigint "deliverydate_id"
-    t.bigint "deliverypays_id"
-    t.bigint "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["condition_id"], name: "index_items_on_condition_id"
-    t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
-    t.index ["deliverypays_id"], name: "index_items_on_deliverypays_id"
-    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.integer "user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

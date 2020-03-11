@@ -114,6 +114,11 @@
             .favorite
               %i.fa.fa-star
               お気に入り
+            .buy-box
+              .buy-box__btn
+                = link_to purchase_index_path do
+                  %button#buy-btn 
+                    購入する
           .comment-box
             .comment-box__text
               %textarea

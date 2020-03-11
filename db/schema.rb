@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 2020_03_10_022252) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
+    t.string "src"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "item_id"
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,9 +47,17 @@ ActiveRecord::Schema.define(version: 2020_03_10_022252) do
     t.date "delivery_date"
     t.string "delivery_type"
     t.integer "delivery_price"
+    t.bigint "condition_id"
+    t.bigint "deliverydate_id"
+    t.bigint "deliverypays_id"
+    t.bigint "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.index ["condition_id"], name: "index_items_on_condition_id"
+    t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
+    t.index ["deliverypays_id"], name: "index_items_on_deliverypays_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,4 +84,5 @@ ActiveRecord::Schema.define(version: 2020_03_10_022252) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
 end

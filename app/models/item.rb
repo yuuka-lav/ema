@@ -1,13 +1,13 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user,optional: true
   has_many :images
-  accepts_nested_attributes_for :images
   belongs_to :category,optional: true
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :condition
   belongs_to_active_hash :deliverypays
   belongs_to_active_hash :deliverydate
+  accepts_nested_attributes_for :images
 
   validates :name,    length: { in: 1..40 }
   validates :info,    length: { in: 1..1000 }

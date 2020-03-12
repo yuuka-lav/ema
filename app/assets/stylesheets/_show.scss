@@ -122,6 +122,9 @@
               cursor: pointer;
               outline: none;
             }
+            #comment-btn:hover{
+              opacity: 0.5;
+            }
           }
         }
       }
@@ -163,6 +166,9 @@
       cursor: pointer;
       outline: none;
     }
+    #buy-btn:hover{
+      opacity: 0.5;
+    }
   }
 }
 .delete-box{
@@ -178,6 +184,9 @@
       font-size: 18px;
       border-radius: 100px;
       cursor: pointer;
+    }
+    #delete-btn:hover{
+      opacity: 0.5;
     }
   }
 }

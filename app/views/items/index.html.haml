@@ -146,6 +146,7 @@
                     = item.name
                 .t-content4__box__lists__list__box__deta
                   %a 
+                    ¥
                     = item.price
                   = icon("fa","star", class: "star")
                   0
@@ -169,6 +170,7 @@
                     = item.name
                 .t-content5__box__lists__list__box__deta
                   %a 
+                    ¥
                     = item.price
                   = icon("fa","star", class: "star")
                   0
@@ -220,9 +222,6 @@
   .t-footers__logo
     = link_to root_path do
       = image_tag"logo-white.png",size:"140x46",class:"eee"
-  %p © EMA
-= link_to new_item_path do
-  .t-btn
-    .t-btn__text
-      出品する
-    =image_tag"icon_camera.png",size:"54x54",class:"t-btn__camera"
+  %p © EMA 
+- if user_signed_in?
+  = render "more/put"

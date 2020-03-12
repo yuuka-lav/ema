@@ -4,14 +4,17 @@
     width: 700px;
     margin: 0 auto;
     &__box{
-      height: 450px;
+      height: 470px;
       text-align: center;
       background-color: white;
+      &__name{
+        font-size: 27px;
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
       &__title{
         font-size: 27px;
         height: 97px;
-        padding: 150px 0;
-
       }
       &__top{
         a{

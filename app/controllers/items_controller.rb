@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :confirm, :pay, :destroy]
   require 'payjp'
   def index
     @items = Item.all.order("created_at DESC").page.per(3)
     @images = Image.all
   end
   def show
-    @item = Item.find(params[:id])
   end
   def new
     @item = Item.new
@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
 
   def confirm
     @card = Card.where(user_id: current_user.id).first
-    @item = Item.find(params[:id])
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
@@ -55,7 +53,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
       redirect_to root_path
@@ -65,5 +62,8 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :info, :price, :condition_id, :deliverydate_id, :deliverypays_id, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

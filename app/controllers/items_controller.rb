@@ -58,6 +58,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :info, :price, :condition_id, :deliverydate_id, :deliverypays_id, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)

@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user,optional: true
-  has_many :images
-  belongs_to :category,optional: true
+  belongs_to :user, optional: true
+  has_many :images, dependent: :destroy
+  belongs_to :category, optional: true
   belongs_to_active_hash :prefecture, foreign_key: true
   belongs_to_active_hash :condition, foreign_key: true
   belongs_to_active_hash :deliverypays, foreign_key: true

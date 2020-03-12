@@ -113,13 +113,13 @@
             margin-top: 30px;
             #comment-btn{
               line-height: 48px;
-               background: #3CCACE;
-               border: 1px solid #3CCACE;
-               color: #fff;
-               width: 60%;
-               font-size: 18px;
-               border-radius: 100px;
-               cursor: pointer;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              cursor: pointer;
             }
           }
         }
@@ -153,13 +153,29 @@
     margin-top: 30px;
     #buy-btn{
       line-height: 48px;
-       background: #3CCACE;
-       border: 1px solid #3CCACE;
-       color: #fff;
-       width: 60%;
-       font-size: 18px;
-       border-radius: 100px;
-       cursor: pointer;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+  }
+}
+.delete-box{
+  text-align: center;
+  &__btn{
+    margin-top: 30px;
+    #delete-btn{
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      cursor: pointer;
     }
   }
 }

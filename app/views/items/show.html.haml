@@ -115,10 +115,16 @@
               %i.fa.fa-star
               お気に入り
             .buy-box
-              .buy-box__btn
-                = link_to confirm_item_path  do
-                  %button#buy-btn 
-                    購入する
+              .delete-box__btn
+                - if user_signed_in? && current_user.id == @item.user_id
+                  = link_to "/items/#{@item.id}", method: :delete do
+                    %button#delete-btn 
+                      削除する
+                - else
+                  .buy-box__btn
+                    = link_to confirm_item_path  do
+                      %button#buy-btn 
+                        購入する
           .comment-box
             .comment-box__text
               %textarea
@@ -145,6 +151,7 @@
         .look-item
           = link_to "#" do
             レディースをもっと見る
+
 .t-contents1
   .t-contents1__box
     %h2.t-contents1__box__title

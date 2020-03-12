@@ -13,7 +13,7 @@
       %ul.t-header__nav__left
         %li.t-header__nav__left--item
           = link_to "#" do
-            カテゴリーpp
+            カテゴリー
         %li.t-header__nav__left--item
           = link_to "#" do
             ブランド
@@ -47,27 +47,40 @@
   .t-content1
     %h2.t-content1__title
       EMAが選ばれる３つの理由
+    %h2.t-content1__line
     %ul.t-content1__lists
       %li.t-content1__lists__list
+        %span.number
+          1
         = image_tag"pict-reason-01.jpg",size: "262x262",class:"img1"
         .t-content1__lists__list__text
-          3分ですぐに出品
+          %span
+            3分
+          ですぐに出品
         .t-content1__lists__list__title
           スマホで入力するだけで
           %br
           簡単に出品できる！
       %li.t-content1__lists__list
+        %span.number
+          2
         = image_tag"pict-reason-02.jpg",size: "262x262",class:"img2"
         .t-content1__lists__list__text
-          シンプルで使いやすい
+          %span
+            シンプル
+          で使いやすい
         .t-content1__lists__list__title
           めんどくさい入力は必要なく、
           %br
           検索も購入もスムーズ！
       %li.t-content1__lists__list
+        %span.number
+          3
         = image_tag"pict-reason-03.jpg",size: "262x262",class:"img3"
         .t-content1__lists__list__text
-          手数料・業界最安
+          手数料
+          %span
+            業界最安
         .t-content1__lists__list__title
           最大3%でお得に出品&購入！
 
@@ -89,6 +102,7 @@
   .t-content2
     .t-content2__title
       EMAの特徴
+    %h2.t-content2__line
     .t-content2__lists
       .t-content2__lists__list
         = image_tag"icon-01.png",size: "138x213",class:"t-content2__lists__list--img"
@@ -101,7 +115,7 @@
           %br
           購入が可能！
       .t-content2__lists__list
-        = image_tag"icon-02.png",size: "138x213",class:"t-content2__lists__list--img"
+        = image_tag"icon-02.svg",size: "138x213",class:"t-content2__lists__list--img"
         .t-content2__lists__list__title
           売上金は即日振込みに
           %br

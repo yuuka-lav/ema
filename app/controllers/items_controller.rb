@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  
   require 'payjp'
   def index
     @items = Item.all.order("created_at DESC").page.per(3)
@@ -27,11 +26,9 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id).first
-    
+    @item = Item.find(params[:id])
     if @card.blank?
-     
       redirect_to controller: "card", action: "new"
     else
       Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_PRIVATE_KEY]
@@ -55,7 +52,6 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
   end
 
   def destroy

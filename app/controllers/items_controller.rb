@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
-    @parents = Category.all.order("id ASC").limit(14)
+    @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
   end
   def create
     puts Item.new
@@ -57,11 +57,17 @@ class ItemsController < ApplicationController
 
   def destroy
     redirect_to root_path if @item.user_id == current_user.id && @item.destroy
+  def category_children
+    @category_children = Category.find(params[:productcategory]).children
+  end
+
+  def category_grandchildren
+    @category_grandchild = Category.find(params[:productcategory]).children
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :info, :price, :condition_id, :deliverydate_id, :deliverypays_id, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :info, :category, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand_id, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])

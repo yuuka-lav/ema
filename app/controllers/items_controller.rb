@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :confirm, :pay, :destroy]
+  before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done]
   require 'payjp'
   def index
     @items = Item.all.order("created_at DESC").page.per(3)

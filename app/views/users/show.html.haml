@@ -18,10 +18,10 @@
     出品した商品
    .mp-item-box
     - @items.each do |item|
-     = link_to "#" do
+     = link_to item_path(item.id) do
       .mp-item
        .mp-item__img
-        画像
+        = image_tag item.images.first.src.url,size:"72x72"
        .mp-item__name
         = item.name
    .mp-page

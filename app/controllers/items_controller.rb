@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   
   require 'payjp'
+
   def index
-    @items = Item.all.order("created_at DESC").page.per(3)
+    @items = Item.order("created_at DESC")
     @images = Image.all
   end
   def show

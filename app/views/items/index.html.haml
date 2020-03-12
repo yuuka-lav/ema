@@ -139,7 +139,11 @@
           .t-content4__box__lists__list
             = link_to item_path(item.id) do
               .t-content4__box__lists__list__img
-                =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f"
+                = image_tag item.images.first.src.url,size:"220x150"
+                -if item.buyer_id.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      %a SOLD
               .t-content4__box__lists__list__box
                 .t-content4__box__lists__list__box--name
                   %a 
@@ -163,7 +167,11 @@
           .t-content5__box__lists__list
             = link_to item_path(item.id) do
               .t-content5__box__lists__list__img
-                =image_tag"member_photo_noimage_thumb.png",size:"220x150",class:"f1"
+                = image_tag item.images.first.src.url,size:"220x150"
+                -if item.buyer_id.present?
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      %a SOLD
               .t-content5__box__lists__list__box
                 .t-content5__box__lists__list__box--name
                   %a 

@@ -50,6 +50,8 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @product_purchaser= Item.find(params[:id])
+    @product_purchaser.update( buyer_id: current_user.id)
   end
 
   def destroy

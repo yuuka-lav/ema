@@ -26,11 +26,11 @@
             margin: 0 auto;
             ul{
               list-style: none;
-              width: 560px;
+              width: 420px;
               align-items: center;
               margin: 0 auto;
               display: flex;
-              justify-content: center;
+              overflow: scroll;
             }
           }
       
@@ -120,6 +120,10 @@
               font-size: 18px;
               border-radius: 100px;
               cursor: pointer;
+              outline: none;
+            }
+            #comment-btn:hover{
+              opacity: 0.5;
             }
           }
         }
@@ -160,6 +164,10 @@
       font-size: 18px;
       border-radius: 100px;
       cursor: pointer;
+      outline: none;
+    }
+    #buy-btn:hover{
+      opacity: 0.5;
     }
   }
 }
@@ -176,6 +184,9 @@
       font-size: 18px;
       border-radius: 100px;
       cursor: pointer;
+    }
+    #delete-btn:hover{
+      opacity: 0.5;
     }
   }
 }

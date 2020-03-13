@@ -114,9 +114,18 @@
             .buy-box
               .delete-box__btn
                 - if user_signed_in? && current_user.id == @item.user_id
-                  = link_to item_path(@item.id), method: :delete do
-                    %button#delete-btn 
-                      削除する
+                  - if @item.buyer_id.present?
+                    = link_to item_path(@item.id), method: :delete do
+                      %button#delete-btn 
+                        削除する
+                  - else
+                    .box-btn
+                      = link_to "#" do
+                        %button#edit-btn
+                          編集する
+                      = link_to item_path(@item.id), method: :delete do
+                        %button#delete-btn-new
+                          削除する
                 -elsif user_signed_in?
                   -if @item.buyer_id.present?
                   - else

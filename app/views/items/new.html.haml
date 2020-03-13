@@ -43,14 +43,17 @@
             カテゴリー
           .category__need
             必須
-        .item-cbox
+        .product_category-select
+          = form.collection_select :category, @category, :id, :name, {prompt: "---"}, {class: "category_select-box", id: "category_select"}
+        .product_select-children
+        .product_select-grandchildren
         .brand
           .brand__title
             ブランド
           .brand__need
             任意
         .item-bbox
-          %input.item-bbox__form{:name => "brand-name", :placeholder => "例）シャネル", :type => "text"}
+          = form.text_field :brand, class: 'item-bbox__form', :placeholder => '例）シャネル'
         .status
           .status__title
             商品の状態

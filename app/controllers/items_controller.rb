@@ -8,13 +8,19 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent if @child
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @deliverydate = Deliverydate.find(@item.deliverydate_id)
+    @deliverypays = Deliverypays.find(@item.deliverypays_id)
+    @condition = Condition.find(@item.condition_id)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
-    # @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
     @category = Category.roots
 
   end

@@ -118,10 +118,12 @@
                     %button#delete-btn 
                       削除する
                 -elsif user_signed_in?
-                  .buy-box__btn
-                    = link_to confirm_item_path  do
-                      %button#buy-btn 
-                        購入する
+                  -if @item.buyer_id.present?
+                  - else
+                    .buy-box__btn
+                      = link_to confirm_item_path  do
+                        %button#buy-btn 
+                          購入する
                 - else
                   .buy-box__btn
                     = link_to new_user_registration_path do

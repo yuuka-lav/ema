@@ -189,5 +189,37 @@
     #delete-btn:hover{
       opacity: 0.5;
     }
+    .box-btn{
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      #delete-btn-new{
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 100px;
+        cursor: pointer;
+        padding: 0 40px;
+      }
+      #delete-btn-new:hover{
+        opacity: 0.5;
+      }
+      #edit-btn{
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 100px;
+        cursor: pointer;
+        padding: 0 40px;
+      }
+      #edit-btn:hover{
+        opacity: 0.5;
+      }
+    }
   }
 }

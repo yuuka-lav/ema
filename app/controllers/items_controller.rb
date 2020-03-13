@@ -14,7 +14,9 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
-    @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
+    # @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
+    @category = Category.roots
+
   end
 
   def create

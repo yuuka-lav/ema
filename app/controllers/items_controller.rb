@@ -6,14 +6,17 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC")
     @images = Image.all
   end
+
   def show
   end
+
   def new
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
     @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
   end
+
   def create
     puts Item.new
     @item = Item.new(item_params)
@@ -46,8 +49,8 @@ class ItemsController < ApplicationController
     :amount => 13500,
     :customer => @card.customer_id,
     :currency => 'jpy',
-  )
-  redirect_to action: 'done' 
+    )
+    redirect_to action: 'done' 
   end
 
   def done
@@ -57,6 +60,8 @@ class ItemsController < ApplicationController
 
   def destroy
     redirect_to root_path if @item.user_id == current_user.id && @item.destroy
+  end
+
   def category_children
     @category_children = Category.find(params[:productcategory]).children
   end
@@ -69,7 +74,9 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
   end
+
   def set_item
     @item = Item.find(params[:id])
   end
+  
 end

@@ -4,7 +4,7 @@ class CardController < ApplicationController
   require "payjp"
 
   def new
-    card=Card.new
+    redirect_to action: "show" if @card
   end
 
   def pay 

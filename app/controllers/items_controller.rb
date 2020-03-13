@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done]
+  before_action :set_category, only: [new, :create]
   require 'payjp'
 
   def index
@@ -24,7 +25,10 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      # redirect_to new_item_path
+      @category = Category.all.order("id ASC").limit(13)
+      @item.images.new
+      render :new
     end
       
   end
@@ -79,4 +83,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
+  def set_category
+    @category = Category.all
+  end
 end

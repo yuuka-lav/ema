@@ -9,6 +9,22 @@ ja:
       messages:
         record_invalid:
       models:
+        item:
+          attributes:
+            info:
+              too_short: "is too short (minimum is 1000 characters)"
+            name:
+              too_short: "is too short (minimum is 40 characters)"
+            prefecture_id:
+              greater_than: "を入力してください"
+            condition_id:
+              greater_than: "を入力してください"
+            deliverypays_id:
+              greater_than: "を入力してください"
+            deliverydate_id:
+              greater_than: "を入力してください"
+            price:
+              not_a_number: "を入力してください"
         user:
           attributes:
             email:

@@ -117,9 +117,14 @@
                   = link_to item_path(@item.id), method: :delete do
                     %button#delete-btn 
                       削除する
-                - else
+                -elsif user_signed_in?
                   .buy-box__btn
                     = link_to confirm_item_path  do
+                      %button#buy-btn 
+                        購入する
+                - else
+                  .buy-box__btn
+                    = link_to new_user_registration_path do
                       %button#buy-btn 
                         購入する
           .comment-box

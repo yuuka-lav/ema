@@ -1,0 +1,25 @@
+= render "more/header"
+
+
+.parents-categories-top
+  - @parents.each do |parent|
+    .parents-category-top
+      = link_to "#{parent.name}", { anchor: "category-#{parent.id}" }
+- @parents.each do |parent|
+  .children-categories-top
+    .main-title-top
+      = link_to "#{parent.name}", id:"category-#{parent.id}"
+    -parent.children.each do |child|
+      .children-category-top
+        .child-category-top
+          .sub-title-top
+            = link_to "#{child.name}"
+        .grandchildren-categories-top
+          -child.children.each do |grandchild|
+            .grandchildren-category-top
+              .grandchildren-title-top
+                = link_to "#{grandchild.name}"
+              
+
+
+= render "more/footer"

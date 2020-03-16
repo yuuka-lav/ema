@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order("created_at DESC")
     @images = Image.all
+    @itemss = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
   end
 
   def show
@@ -34,7 +37,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       # redirect_to new_item_path
-      @category = Category.all.order("id ASC").limit(13)
+      @category = Category.roots
       @item.images.new
       render :new
     end
@@ -80,6 +83,12 @@ class ItemsController < ApplicationController
 
   def category_grandchildren
     @category_grandchild = Category.find(params[:productcategory]).children
+  end
+
+  def category
+    @items = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
   end
 
   private

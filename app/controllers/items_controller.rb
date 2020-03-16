@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order("created_at DESC")
     @images = Image.all
+    @itemss = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
   end
 
   def show
@@ -80,6 +83,12 @@ class ItemsController < ApplicationController
 
   def category_grandchildren
     @category_grandchild = Category.find(params[:productcategory]).children
+  end
+
+  def category
+    @items = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
   end
 
   private

@@ -15,18 +15,18 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
-    @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
+    @category = Category.roots
   end
 
   def create
-    puts Item.new
+    # puts Item.new
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
       redirect_to root_path
     else
       # redirect_to new_item_path
-      @category = Category.all.order("id ASC").limit(13)
+      @category = Category.roots
       @item.images.new
       render :new
     end

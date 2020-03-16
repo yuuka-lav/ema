@@ -68,13 +68,13 @@
                       カテゴリー
                     %td
                       = link_to do
-                        レディース
+                        =@parent.name
                       %br
                       = link_to do
-                        トップス
+                        =@child.name
                       %br
                       = link_to do
-                        Tシャツ/カットソー(半袖/袖なし)
+                        =@grandchild.name
       
                   %tr
                     %th
@@ -89,34 +89,43 @@
                       商品の状態
                     %td
                       = link_to do
-                        新品/未使用
+                        =@condition.name
                   %tr
                     %th
                       配送料の負担	
                     %td
                       = link_to do
-                        送料込み（出品者負担）
+                        =@deliverypays.name
                   %tr
                     %th
                       発送元の地域
                     %td
                       = link_to do
-                        青森県
+                        =@prefecture.name
                   %tr
                     %th
                       発送日の目安	
                     %td
                       = link_to do
-                        1-2日で発送
+                        =@deliverydate.name
             .favorite
               %i.fa.fa-star
               お気に入り
             .buy-box
               .delete-box__btn
                 - if user_signed_in? && current_user.id == @item.user_id
-                  = link_to item_path(@item.id), method: :delete do
-                    %button#delete-btn 
-                      削除する
+                  - if @item.buyer_id.present?
+                    = link_to item_path(@item.id), method: :delete do
+                      %button#delete-btn 
+                        削除する
+                  - else
+                    .box-btn
+                      = link_to "#" do
+                        %button#edit-btn
+                          編集する
+                      = link_to item_path(@item.id), method: :delete do
+                        %button#delete-btn-new
+                          削除する
                 -elsif user_signed_in?
                   -if @item.buyer_id.present?
                   - else

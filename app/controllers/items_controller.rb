@@ -9,6 +9,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent if @child
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @deliverydate = Deliverydate.find(@item.deliverydate_id)
+    @deliverypays = Deliverypays.find(@item.deliverypays_id)
+    @condition = Condition.find(@item.condition_id)
   end
 
   def new
@@ -16,6 +23,7 @@ class ItemsController < ApplicationController
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
     @category = Category.roots
+
   end
 
   def create

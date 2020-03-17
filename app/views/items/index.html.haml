@@ -5,10 +5,11 @@
         = link_to root_path do
           =image_tag'logo.png', size: "140x40", class: "img"
       .t-header__main__box
-        %form{:action => "/", :method => "get"}
-          %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
-          %button{type:"submit",class:"t-header__main__box__submit"}
-            =image_tag"icon-search 1.png",size: "19x19", class: "imgs"
+        = form_with(url: search_items_path, local: true, method: :get, class: "s-form") do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "s-form__text" 
+          %label.s-label
+            %i.fa.fa-search
+              = form.submit class: "s-btn" 
     .t-header__nav
       %ul.t-header__nav__left
         %li.t-header__nav__left--item

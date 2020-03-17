@@ -1,0 +1,58 @@
+.t-headers
+  .t-header
+    .t-header__main
+      .t-header__main__img
+        = link_to root_path do
+          =image_tag'logo.png', size: "140x40", class: "img"
+      .t-header__main__box
+        = form_with(url: search_items_path, local: true, method: :get, class: "s-form") do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "s-form__text" 
+          %label.s-label
+            %i.fa.fa-search
+              = form.submit class: "s-btn" 
+    .t-header__nav
+      %ul.t-header__nav__left
+        %li.t-header__nav__left--item
+          = link_to category_items_path do
+            カテゴリー
+        %li.t-header__nav__left--item
+          = link_to "#" do
+            ブランド
+      %ul.t-header__nav__right
+        - if user_signed_in?
+          %li.t-header__nav__right--item2
+            = link_to user_path(current_user.id), class: "a" do
+              マイページ
+        - else
+          %li.t-header__nav__right--item2
+            = link_to new_user_session_path, class: "a" do
+              ログイン
+          %li.t-header__nav__right--item2
+            = link_to new_user_registration_path,class: "a" do
+              新規会員登録
+.s-content
+  .s-main
+    .s-main__box
+      - @items.each do |item|
+        .s-main__box--list
+          = link_to item_path(item.id) do
+            .t-content5__box__lists__list__img
+              = image_tag item.images.first.src.url,size:"220x150"
+              -if item.buyer_id.present?
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    %a SOLD
+            .t-content5__box__lists__list__box
+              .t-content5__box__lists__list__box--name
+                %a 
+                  = item.name
+              .t-content5__box__lists__list__box__deta
+                %a 
+                  ¥
+                  = item.price
+                = icon("fa","star", class: "star")
+                0
+                %p (税込)
+    .s-page
+      = paginate(@items)
+  = render "more/footer"

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get 'category_grandchildren'
       get 'category'
     end
+    collection do
+      get 'search'
+    end
   end
   resources :users, only: :show 
   resources :card, only: [:new, :show] do

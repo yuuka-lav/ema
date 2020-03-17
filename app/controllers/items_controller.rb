@@ -91,6 +91,10 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def search
+    @items = Item.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(16)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)

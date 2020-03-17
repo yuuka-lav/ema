@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # redirect_to new_item_path
       @category = Category.roots
       @item.images.new
       render :new
@@ -48,9 +47,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-
-    if @item.save
+    if @item.update(item_params)
+      @item.save
       redirect_to root_path
     else
       @category = Category.roots

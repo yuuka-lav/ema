@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items do
 
-
+    resources :comments, only: :create
     member do
       get 'confirm', to: 'items#confirm'
       post 'pay', to: 'items#pay'

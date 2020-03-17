@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
     @deliverydate = Deliverydate.find(@item.deliverydate_id)
     @deliverypays = Deliverypays.find(@item.deliverypays_id)
     @condition = Condition.find(@item.condition_id)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def new

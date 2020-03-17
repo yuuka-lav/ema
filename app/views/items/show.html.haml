@@ -138,19 +138,36 @@
                     = link_to new_user_registration_path do
                       %button#buy-btn 
                         購入する
+          -# .comment-box
+          -#   .comment-box__text
+          -#     %textarea
+          -#       :preserve
+          -#   .comment-box__btn
+          -#     %button#comment-btn 
+          -#       %i.fa.fa-comment
+          -#       コメントする
           .comment-box
-            .comment-box__text
-              %textarea
-                :preserve
-                
-            .comment-box__message
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .comment-box__btn
-              %button#comment-btn 
-                %i.fa.fa-comment
-                コメントする
+            - if current_user
+              = form_with(model: [@item, @comment], local: true) do |form|
+                = form.text_area :text, placeholder: "コメントする", rows: "2"
+                .comment-box__message
+                  相手のことを考え丁寧なコメントを心がけましょう。
+                  %br
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                .comment-box__btn
+                  = form.submit "コメントする",id:"comment-btn"
+            - else
+          .commentss
+            %a コメント一覧
+            .comments
+              .comment
+                - if @comments
+                  - @comments.each do |comment|
+                    .comment__box
+                      .comment__box__user
+                        = comment.user.name
+                      .comment__box__text
+                        = comment.text 
         .link-page
           .link-page__left
             = link_to "#" do

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, only: [:index, :new, :create, :show, :destroy] do
+    resources :comments, only: :create 
     member do
       get 'confirm', to: 'items#confirm'
       post 'pay', to: 'items#pay'

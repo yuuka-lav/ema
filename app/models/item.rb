@@ -1,16 +1,15 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user, optional: true
-  has_many :images, dependent: :destroy
   belongs_to :category, optional: true
   belongs_to :user,optional: true
-  has_many :images
   belongs_to :category,optional: true
   belongs_to_active_hash :prefecture, foreign_key: true
   belongs_to_active_hash :condition, foreign_key: true
   belongs_to_active_hash :deliverypays, foreign_key: true
   belongs_to_active_hash :deliverydate, foreign_key: true
-  accepts_nested_attributes_for :images
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name,    length: { in: 1..40 }
   validates :info,    length: { in: 1..1000 }

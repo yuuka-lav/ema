@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done]
+  before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done, :edit, :update]
   require 'payjp'
 
   def index
@@ -29,6 +29,15 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
       
+  end
+
+  def edit
+    @category = Category.roots
+  end
+
+  def update
+    @item.update(item_params)
+    redirect_to root_path
   end
 
   def confirm
@@ -74,7 +83,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_item

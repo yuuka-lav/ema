@@ -38,8 +38,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # redirect_to new_item_path
-      @category = Category.roots
+      @category = Category.all.order("id ASC").limit(13)
       @item.images.new
       render :new
     end

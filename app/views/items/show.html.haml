@@ -131,12 +131,12 @@
                   -if @item.buyer_id.present?
                   - else
                     .buy-box__btn
-                      = link_to confirm_item_path  do
+                      = link_to confirm_item_path,data: {"turbolinks" => false} do
                         %button#buy-btn 
                           購入する
                 - else
                   .buy-box__btn
-                    = link_to new_user_registration_path do
+                    = link_to new_user_registration_path,data: {"turbolinks" => false} do
                       %button#buy-btn 
                         購入する
           .comment-box

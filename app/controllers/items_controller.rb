@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      @item.save
       redirect_to root_path
     else
       @category = Category.roots

@@ -27,11 +27,9 @@ class ItemsController < ApplicationController
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
     @category = Category.roots
-
   end
 
   def create
-    # puts Item.new
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
@@ -51,7 +49,13 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    redirect_to root_path
+
+    if @item.save
+      redirect_to root_path
+    else
+      @category = Category.roots
+      render :edit
+    end
   end
 
   def confirm

@@ -4,10 +4,10 @@
 .parents-categories-top
   - @parents.each do |parent|
     .parents-category-top
-      = link_to "#{parent.name}", { anchor: "category-#{parent.id}" }
+      = link_to "#{parent.name}", { anchor: "#{parent.id}" }
 - @parents.each do |parent|
   .children-categories-top
-    .main-title-top
+    .main-title-top{id: "#{parent.id}"}
       = link_to "#{parent.name}", id:"category-#{parent.id}"
     -parent.children.each do |child|
       .children-category-top

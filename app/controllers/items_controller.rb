@@ -19,6 +19,8 @@ class ItemsController < ApplicationController
     @deliverydate = Deliverydate.find(@item.deliverydate_id)
     @deliverypays = Deliverypays.find(@item.deliverypays_id)
     @condition = Condition.find(@item.condition_id)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def new
@@ -36,8 +38,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # redirect_to new_item_path
-      @category = Category.roots
+      @category = Category.all.order("id ASC").limit(13)
       @item.images.new
       render :new
     end

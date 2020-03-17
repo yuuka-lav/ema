@@ -61,10 +61,11 @@ class ItemsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-    :amount => 13500,
+    :amount => @item.price,
     :customer => @card.customer_id,
     :currency => 'jpy',
     )
+    
     redirect_to action: 'done' 
   end
 

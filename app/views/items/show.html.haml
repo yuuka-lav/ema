@@ -141,14 +141,14 @@
                         購入する
           .comment-box
             - if current_user
-              = form_with(model: [@item, @comment], local: true) do |form|
-                = form.text_area :text, placeholder: "コメントする", rows: "2"
+              = form_with(model: [@item, @comment], local: true, id: "new_comment") do |form|
+                = form.text_area :text, placeholder: "コメントする", rows: "2",class: "textbox"
                 .comment-box__message
                   相手のことを考え丁寧なコメントを心がけましょう。
                   %br
                   不快な言葉遣いなどは利用制限や退会処分となることがあります。
                 .comment-box__btn
-                  = form.submit "コメントする",id:"comment-btn"
+                  = form.submit "コメントする",id:"comment-btn",class:"form__submit"
             - else
           .commentss
             %a コメント一覧

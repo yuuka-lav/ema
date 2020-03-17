@@ -1,32 +1,46 @@
 class ItemsController < ApplicationController
+
   before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done, :edit, :update]
+  before_action :set_category, only: [new, :create]
   require 'payjp'
 
   def index
     @items = Item.order("created_at DESC")
     @images = Image.all
+    @itemss = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
   end
 
   def show
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent if @child
+    @prefecture = Prefecture.find(@item.prefecture_id)
+    @deliverydate = Deliverydate.find(@item.deliverydate_id)
+    @deliverypays = Deliverypays.find(@item.deliverypays_id)
+    @condition = Condition.find(@item.condition_id)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
-    # @category = Category.all.order("id ASC").limit(13) #カテゴリー親情報取得
     @category = Category.roots
 
   end
 
   def create
-    puts Item.new
+    # puts Item.new
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      # redirect_to new_item_path
+      @category = Category.roots
+      @item.images.new
+      render :new
     end
       
   end
@@ -81,6 +95,12 @@ class ItemsController < ApplicationController
     @category_grandchild = Category.find(params[:productcategory]).children
   end
 
+  def category
+    @items = Item.all
+    @categories = Category.all
+    @parents = Category.where(ancestry: nil)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
@@ -90,4 +110,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
+  def set_category
+    @category = Category.all
+  end
 end

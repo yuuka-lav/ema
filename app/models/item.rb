@@ -19,5 +19,9 @@ class Item < ApplicationRecord
   validates :deliverydate_id, numericality: { only_integer: true, greater_than: 0, less_than: 4 }
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
 
+  validates_associated :images
+  validates :images, presence: true
 
+  validates_associated :category
+  validates :category_id, presence: true
 end

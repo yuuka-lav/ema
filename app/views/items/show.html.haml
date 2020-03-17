@@ -121,7 +121,7 @@
                         削除する
                   - else
                     .box-btn
-                      = link_to "#" do
+                      = link_to edit_item_path(@item.id) do
                         %button#edit-btn
                           編集する
                       = link_to item_path(@item.id), method: :delete do

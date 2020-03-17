@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done]
+
+  before_action :set_item, only: [:show, :confirm, :pay, :destroy, :done, :edit, :update]
   before_action :set_category, only: [new, :create]
   require 'payjp'
 
@@ -28,21 +29,32 @@ class ItemsController < ApplicationController
     @item.images.new
     @items = Item.includes(:images).order('created_at DESC')
     @category = Category.roots
-
   end
 
   def create
-    # puts Item.new
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
       redirect_to root_path
     else
-      @category = Category.all.order("id ASC").limit(13)
+      @category = Category.roots
       @item.images.new
       render :new
     end
       
+  end
+
+  def edit
+    @category = Category.roots
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      @category = Category.roots
+      render :edit
+    end
   end
 
   def confirm
@@ -99,7 +111,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :info, :category_id, :price, :condition_id, :deliverydate_id, :deliverypays_id, :brand, :prefecture_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_item

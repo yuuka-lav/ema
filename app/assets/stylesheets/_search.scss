@@ -1,0 +1,43 @@
+.s-form{
+  &__text{
+    position: relative;
+  }
+  .s-label{
+    font-size: 18px;
+    position: absolute;
+    right: 33px;
+    top: 13px;
+    cursor: pointer;
+    .s-btn{
+      display: none;
+    }
+  }
+}
+.s-content{
+  background: #f8f8f8;
+  .s-main{
+    min-height: 500px;
+    &__box{
+      width: 70%;
+      margin: 26px auto;
+      display: flex;
+      flex-wrap: wrap;
+      &--list{
+        display: inline-block;
+        margin-left: 30px;
+        margin-top: 30px;
+      }
+    }
+  }
+  .s-page{
+    text-align: center;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+    a:hover{
+      text-decoration: underline;
+      color: #3CCACE;
+    }
+  }
+}

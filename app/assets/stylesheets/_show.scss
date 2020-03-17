@@ -94,14 +94,12 @@
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
-          &__text{
             textarea{
               width: 100%;
               min-height: 100px;
               padding: 10px;
             }
           
-          }
           &__message{
             padding: 8px;
             font-size: 14px;
@@ -129,6 +127,39 @@
         }
       }
     }
+    .commentss{
+      height: 300px;
+      padding: 24px;
+      background-color: #fff;
+      margin: 10px 0;
+      text-align: center;
+
+      a{
+        color: #3CCACE;
+        font-size: 29px;
+      }
+      .comments{
+        height: 200px;
+        overflow: scroll;
+      .comment{
+        
+        &__box{
+          display: flex;
+          padding-bottom: 10px;
+          &__user{
+            color: slategray;
+            padding-left: 20px;
+          }
+          &__text{
+            padding-left: 100px;
+            padding-top: 2px;
+            color: #3CCACE;
+          }
+        }
+      }
+    }
+  }
+
     .link-page{
       list-style: none;
       display: flex;

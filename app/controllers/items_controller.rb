@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
     @deliverydate = Deliverydate.find(@item.deliverydate_id)
     @deliverypays = Deliverypays.find(@item.deliverypays_id)
     @condition = Condition.find(@item.condition_id)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def new
@@ -35,8 +37,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      # redirect_to new_item_path
-      @category = Category.roots
+      @category = Category.all.order("id ASC").limit(13)
       @item.images.new
       render :new
     end
@@ -75,10 +76,11 @@ class ItemsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-    :amount => 13500,
+    :amount => @item.price,
     :customer => @card.customer_id,
     :currency => 'jpy',
     )
+    
     redirect_to action: 'done' 
   end
 
@@ -103,6 +105,10 @@ class ItemsController < ApplicationController
     @items = Item.all
     @categories = Category.all
     @parents = Category.where(ancestry: nil)
+  end
+
+  def search
+    @items = Item.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(16)
   end
 
   private

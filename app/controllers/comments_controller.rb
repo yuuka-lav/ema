@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
-      Comment.create(comment_params)
       redirect_to item_path(params[:item_id])
     else
       render :show

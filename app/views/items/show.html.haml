@@ -138,14 +138,6 @@
                     = link_to new_user_registration_path do
                       %button#buy-btn 
                         購入する
-          -# .comment-box
-          -#   .comment-box__text
-          -#     %textarea
-          -#       :preserve
-          -#   .comment-box__btn
-          -#     %button#comment-btn 
-          -#       %i.fa.fa-comment
-          -#       コメントする
           .comment-box
             - if current_user
               = form_with(model: [@item, @comment], local: true) do |form|

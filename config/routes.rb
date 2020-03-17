@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items do
+
+
     member do
       get 'confirm', to: 'items#confirm'
       post 'pay', to: 'items#pay'
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
       get 'category_children'
       get 'category_grandchildren'
       get 'category'
+    end
+    collection do
+      get 'search'
     end
   end
   resources :users, only: :show 

@@ -5,10 +5,11 @@
         = link_to root_path do
           =image_tag'logo.png', size: "140x40", class: "img"
       .t-header__main__box
-        %form{:action => "/", :method => "post"}
-          %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
-          %button{type:"submit",class:"t-header__main__box__submit"}
-            =image_tag"icon-search 1.png",size: "19x19", class: "imgs"
+        = form_with(url: search_items_path, local: true, method: :get, class: "s-form") do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "s-form__text" 
+          %label.s-label
+            %i.fa.fa-search
+              = form.submit class: "s-btn" 
     .t-header__nav
       %ul.t-header__nav__left
         %li.t-header__nav__left--item
@@ -139,18 +140,27 @@
                       %button#buy-btn 
                         購入する
           .comment-box
-            .comment-box__text
-              %textarea
-                :preserve
-                
-            .comment-box__message
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .comment-box__btn
-              %button#comment-btn 
-                %i.fa.fa-comment
-                コメントする
+            - if current_user
+              = form_with(model: [@item, @comment], local: true) do |form|
+                = form.text_area :text, placeholder: "コメントする", rows: "2"
+                .comment-box__message
+                  相手のことを考え丁寧なコメントを心がけましょう。
+                  %br
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                .comment-box__btn
+                  = form.submit "コメントする",id:"comment-btn"
+            - else
+          .commentss
+            %a コメント一覧
+            .comments
+              .comment
+                - if @comments
+                  - @comments.each do |comment|
+                    .comment__box
+                      .comment__box__user
+                        = comment.user.name
+                      .comment__box__text
+                        = comment.text 
         .link-page
           .link-page__left
             = link_to "#" do

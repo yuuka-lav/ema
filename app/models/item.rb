@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :comments
   belongs_to :user, optional: true
   belongs_to :category, optional: true
   belongs_to :user,optional: true
@@ -24,4 +25,8 @@ class Item < ApplicationRecord
 
   validates_associated :category
   validates :category_id, presence: true
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end

@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_many :comments
   belongs_to :user, optional: true
   has_many :images, dependent: :destroy
   belongs_to :category, optional: true

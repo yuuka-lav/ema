@@ -36,7 +36,7 @@ has_many :likes
 |delivery_type|string|null: false|
 |delivery_price|integer|null: false|
 |user_id|integer|null: false|
-|seller_id|integer|null: false|
+|buyer_id|integer|null: false|
 ### Association
 has_many :comments
 has_many :images
@@ -56,7 +56,7 @@ belongs_to :user
 ## comments table
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null: false|
+|text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
@@ -66,8 +66,8 @@ belongs_to :item
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
+|src|string|null: false|
+|item_id|bigint||
 ### Association
 belongs_to :item
 

@@ -7,7 +7,7 @@ $(function(){
     var childSelectHtml = '';
       childSelectHtml = `<div class='product_category-select' id= 'children_wrapper'>
                           <select class="category_select-box" id="child_category" name="item[category_id]">
-                            <option value="---" data-category="---">---</option>
+                            <option value="---" data-category="---">選択してください</option>
                             ${insertHTML}
                           <select>
                         </div>`;
@@ -17,7 +17,7 @@ $(function(){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='product_category-select' id= 'grandchildren_wrapper'>
                                 <select class="category_select-box" id="grandchild_category" name="item[category_id]">
-                                  <option value="---" data-category="---">---</option>
+                                  <option value="---" data-category="---">選択してください</option>
                                   ${insertHTML}
                                 <select>
                               </div>`;

@@ -21,7 +21,7 @@
               = form.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.file_field :src, class: 'js-file'
-                  %span.js-remove 削除
+                  .js-remove 削除
       .item-info-box
         .item-name
           .item-name__title
@@ -77,7 +77,7 @@
           = form.collection_select :deliverypays_id , Deliverypays.all, :id, :name
         .deliver-area
           .deliver-area__title
-            配送料場所
+            配送場所
           .deliver-area__need
             必須
         .item-abox

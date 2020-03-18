@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items do
 
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
     resources :comments, only: :create
     member do
       get 'confirm', to: 'items#confirm'

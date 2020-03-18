@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :deliverypays, foreign_key: true
   belongs_to_active_hash :deliverydate, foreign_key: true
   has_many :images, dependent: :destroy
+  has_many :favorites
+  has_many :users, through: :favorites
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name,    length: { in: 1..40 }

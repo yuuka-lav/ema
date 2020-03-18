@@ -89,7 +89,6 @@
           } 
         }
         .comment-box{
-          height: 300px;
           padding: 24px;
           background-color: #fff;
           margin: 10px 0;
@@ -254,4 +253,18 @@
       }
     }
   }
+}
+.comment-dekimasen{
+  display: inline-block;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: #3CCACE;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+}
+.commento-dekimasen2{
+  display: inline-block;
 }

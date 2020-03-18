@@ -48,7 +48,7 @@
           .category__need
             必須
         .product_category-select
-          = form.collection_select :category, @category, :id, :name, {prompt: "---"}, {class: "category_select-box", id: "category_select"}
+          = form.collection_select :category, @category, :id, :name, {prompt: "選択してください"}, {class: "category_select-box", id: "category_select"}
         .product_select-children
         .product_select-grandchildren
         .brand

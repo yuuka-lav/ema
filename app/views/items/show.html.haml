@@ -111,7 +111,7 @@
                         =@deliverydate.name
             .favorite
               %i.fa.fa-star
-              お気に入り
+                = render "more/favorite"
             .buy-box
               .delete-box__btn
                 - if user_signed_in? && current_user.id == @item.user_id
@@ -150,6 +150,12 @@
                 .comment-box__btn
                   = form.submit "コメントする",id:"comment-btn",class:"form__submit"
             - else
+              .comment-dekimasen
+                コメントするには
+                = link_to user_session_path do
+                  ログイン
+              .commento-dekimasen2 
+                してください。
           .commentss
             %a コメント一覧
             .comments

@@ -1,5 +1,4 @@
--if !Favorite.exists?(user_id:current_user.id,item_id:@item.id)
+-if !Favorite.exists?(item_id:@item.id)
   = link_to "お気に入り",item_add_path(@item),method: :post, class:"star"
 - else
   = link_to "お気に入り解除",item_add_path(@item),method: :delete, class:"star"
-  

@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items do
-    resources :favorites, only: [:create, :destroy]
+    
+    resources :favorites, only: [:create,:destroy]
     resources :comments, only: :create
     member do
       get 'confirm', to: 'items#confirm'

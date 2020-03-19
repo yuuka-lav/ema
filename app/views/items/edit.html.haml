@@ -18,18 +18,21 @@
           最大10枚までアップロードできます
           #image-box
             #previews
-              - @item.images.each_with_index do |image,i|
-                = image_tag asset_path("#{image.src.url}", data: {index: i}), with: "100", height: "100"
-                = form.fields_for :images do |image|
-                  .js-file_group{"data-index" => "#{image.index}"}
-                    = image.file_field :src, class: 'js-file'
-                    .js-remove 削除
-                  - if @item.persisted?
-                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                  - if @item.persisted?
-                    .js-file_group{"data-index" => "#{@item.images.count}"}
-                      = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-                      .js-remove 削除
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag asset_path("#{image.src.url}"), data: {index: i}, width: "100", height: "100"
+            
+            = form.fields_for :images do |i|
+              .js-file_group{data: {index: "#{i.index}"}, type: "file"}
+                = i.file_field :picture, class: "js-file"
+                .js-file 編集
+                .js-remove 削除
+              - if @item.persisted?
+                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                .js-remove 削除
       .item-info-box
         .item-name
           .item-name__title
@@ -129,3 +132,12 @@
       .bottom-text
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
     = render "more/footer"
+
+
+
+    -# - @item.images.each_with_index do |image,i|
+    -#             = image_tag asset_path("#{image.src.url}", data: {index: i}), with: "100", height: "100"
+    -#             = form.fields_for :images do |image|
+    -#               .js-file_group{"data-index" => "#{image.index}"}
+    -#                 = image.file_field :src, class: 'js-file'
+    -#                 .js-remove 削除

@@ -16,11 +16,13 @@
 |address|string|null: false|
 |building|string|
 |zipcode|integer|null: false|
+|encrypted_password|string|null: false|
 ### Association
 has_one :card
 has_many :items
 has_many :comments
-has_many :likes
+has_many :items, through: :favorites
+has_many :favorites
 
 ## items table
 |Column|Type|Options|
@@ -29,20 +31,33 @@ has_many :likes
 |info|text|null: false|
 |status|string|null: false|
 |price|integer|null: false|
+|brand|string|
 |size|string|null: false|
 |from_delivery_area|string|null: false|
 |to_delivery_area|string|null: false|
 |delivery_date|date|null: false|
 |delivery_type|string|null: false|
 |delivery_price|integer|null: false|
+|condition_id|bigint|null: false|
+|deliverydate_id|bigint|null: false|
+|deliverypays_id|bigint|null: false|
+|prefecture_id|bigint|null: false|
+|category_id|integer|null: false|
 |user_id|integer|null: false|
 |buyer_id|integer|null: false|
 ### Association
 has_many :comments
-has_many :images
-belongs_to :user
-belongs_to :category
-belongs_to :brand
+belongs_to :user, optional: true
+belongs_to :category, optional: true
+belongs_to :user,optional: true
+belongs_to :category,optional: true
+belongs_to_active_hash :prefecture, foreign_key: true
+belongs_to_active_hash :condition, foreign_key: true
+belongs_to_active_hash :deliverypays, foreign_key: true
+belongs_to_active_hash :deliverydate, foreign_key: true
+has_many :images, dependent: :destroy
+has_many :favorites
+has_many :users, through: :favorites
 
 ## cards table
 |Column|Type|Options|
@@ -51,7 +66,7 @@ belongs_to :brand
 |customer_id|string|null: false|
 |card_id|string|null: false|
 ### Association
-belongs_to :user
+
 
 ## comments table
 |Column|Type|Options|
@@ -75,22 +90,24 @@ belongs_to :item
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :items
+
 
 ## categories table
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|
 ### Association
 has_many :items
+has_ancestry
 
-## likes table
+
+## favorites table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
 |item_id|integer|null: false|
 ### Association
-belongs_to :user
-belongs_to :item
+belongs_to :user, optional: true
+belongs_to :item, optional: true

@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category, optional: true
   belongs_to :user,optional: true
-  belongs_to :category,optional: true
+
   belongs_to_active_hash :prefecture, foreign_key: true
   belongs_to_active_hash :condition, foreign_key: true
   belongs_to_active_hash :deliverypays, foreign_key: true

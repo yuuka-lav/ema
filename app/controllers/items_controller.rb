@@ -46,7 +46,26 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Category.roots
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent
+    @parent_category = @child_category.parent
+
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: @child_category.ancestry).each do |child|
+      @category_children_array << child
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: @grandchild_category.ancestry).each do |grandchild|
+      @category_grandchildren_array << grandchild
+    end
   end
+
 
   def update
     if @item.update(item_params)

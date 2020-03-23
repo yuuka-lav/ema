@@ -59,9 +59,12 @@
           .category__need
             必須
         .product_category-select
-          = form.collection_select :category, @category, :id, :name, {prompt: "選択してください"}, {class: "category_select-box", id: "category_select"}
-        .product_select-children
-        .product_select-grandchildren
+          = form.select :category, @category_parent_array, {selected: @parent_category.name}, {class: "category_select-box", id: "category_select"}
+        #children_wrapper.product_select-children
+          = form.select :category, options_for_select(@category_children_array.map{|e| [e.name, e.id, {data:{category: e.id}}]},{selected: @child_category.id}), {prompt: "選択してください"}, {class: "category_select-box", id: "child_category"}
+        #grandchildren_wrapper.product_select-grandchildren
+          = form.select :category, options_for_select(@category_grandchildren_array.map{|o| [o.name, o.id, {data:{category: o.id}}]},{selected: @grandchild_category.id}), {prompt: "選択してください"}, {class: "category_select-box", id: "grandchild_category"}
+
         .brand
           .brand__title
             ブランド
@@ -132,12 +135,3 @@
       .bottom-text
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
     = render "more/footer"
-
-
-
-    -# - @item.images.each_with_index do |image,i|
-    -#             = image_tag asset_path("#{image.src.url}", data: {index: i}), with: "100", height: "100"
-    -#             = form.fields_for :images do |image|
-    -#               .js-file_group{"data-index" => "#{image.index}"}
-    -#                 = image.file_field :src, class: 'js-file'
-    -#                 .js-remove 削除

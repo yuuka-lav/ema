@@ -32,6 +32,7 @@ $(function(){
     })
     .fail(function(){
       alert('コメントが送信されませんでした');
+      $('.form__submit').prop('disabled', false);
     })
   })
 });

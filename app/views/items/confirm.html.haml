@@ -7,7 +7,7 @@
       .b-items__buy-item
         .b-items__buy-item__box
           .b-items__buy-item__box--img
-            画像
+            = image_tag @item.images.first.src.url,size:"80x80"
           .b-items__buy-item__box--text
             .b-item-name
               = @item.name

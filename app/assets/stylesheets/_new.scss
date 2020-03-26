@@ -8,11 +8,10 @@
     margin: 0 auto;
     .sell-image-box{
       width: 100%;
-      height: 300px;
       border-bottom: 1px solid #f5f5f5;
       .title{
         display:flex;
-        padding-top: 40px;
+        padding-top: 15px;
         &__name{
           font-weight:bolder;
           font-size: 14px;
@@ -34,15 +33,30 @@
         padding-left: 40px;
         color: #333333;
       }
+      .js-remove{
+        font-size: 15px;
+        border: 1px solid #3CCACE;
+        color: #3CCACE;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        padding: 3px 5px;
+        outline: none;
+      }
+      .js-file_group{
+        display: flex;
+      }
+      input{
+        outline: none;
+      }
       .image{
-        height:150px;
         width:620px;
         background-color: #f5f5f5;
         border: dashed 2px #C0C0C0;
         margin:0 auto;
         text-align: center;
         &__icon{
-          padding-top: 40px;
+          padding-top: 15px;
         }
         &__text1{
           font-size: 12px;
@@ -57,9 +71,8 @@
     .item-info-box{
       border-bottom: 1px solid #f5f5f5;
       width:100%;
-      height:415px;
       .item-name{
-        padding-top: 40px;
+        padding-top: 15px;
         padding-left: 40px;
         display: flex;
         &__title{
@@ -126,17 +139,16 @@
     }
     .item-type-box{
       width:100%;
-      height:450px;
       padding-bottom: 30px;
       border-bottom: 1px solid #f5f5f5;
       .type-text{
-        padding-top: 40px;
+        padding-top: 15px;
         padding-left: 40px;
         color: #C0C0C0;
         font-size: 14px;
       }
       .category{
-        padding-top: 40px;
+        padding-top: 15px;
         padding-left: 40px;
         display: flex;
         &__title{
@@ -152,6 +164,21 @@
           margin-left: 8px;
           padding: 0 4px;
         }
+      }
+      #category_select{
+        width: 620px;
+        height: 45px;
+        margin: 5px 0 2px 40px;
+      }
+      #child_category{
+        width: 620px;
+        height: 45px;
+        margin: 5px 0 2px 40px;
+      }
+      #grandchild_category{
+        width: 620px;
+        height: 45px;
+        margin: 5px 0 2px 40px;
       }
       .item-cbox{
         padding-top: 20px;
@@ -216,12 +243,15 @@
           height: 40px;
         }
       }
+      #item_condition_id{
+        width: 620px;
+        height: 45px;
+      }
     }
     .item-deliver-box{
       background-color: #ffffff;
       padding-bottom: 20px;
       border-bottom: 1px solid #f5f5f5;
-      height: 430px;
       .deliver-text{
         padding-top: 24px;
         padding-left: 40px;
@@ -254,6 +284,10 @@
           height: 40px;
         }
       }
+      #item_deliverypays_id{
+        width: 620px;
+        height: 45px;
+      }
       .deliver-area{
         padding-top: 40px;
         padding-left: 40px;
@@ -280,6 +314,10 @@
           height: 40px;
         }
       }
+      #item_prefecture_id{
+        width: 620px;
+        height: 45px;
+      }
       .deliver-date{
         padding-top: 40px;
         padding-left: 40px;
@@ -305,6 +343,10 @@
           width: 620px;
           height: 40px;
         }
+      }
+      #item_deliverydate_id{
+        width: 620px;
+        height: 45px;
       }
     }
     .item-sell-box{
@@ -391,21 +433,18 @@
     .sell-btn{
       width:360px;
       height:50px;
-      background-color: red;
+      background-color: #3CCACE;
       margin: 24px auto;
-      text-align: center;
       border-radius: 5px;
-      &__exhibition{
-        text-decoration: none;
-      }
-      &__text{
-        color: #ffffff;
-        line-height: 50px;
-        font-weight:bolder;
-      }
+      color: #ffffff;
+      line-height: 50px;
+      font-weight:bolder;
+      display: block;
+      cursor: pointer;
     }
     .sell-btn:hover{
       opacity: 0.5;
+      outline: none;
     }
     .return-btn{
       width:360px;

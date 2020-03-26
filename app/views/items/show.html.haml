@@ -5,10 +5,11 @@
         = link_to root_path do
           =image_tag'logo.png', size: "140x40", class: "img"
       .t-header__main__box
-        %form{:action => "/", :method => "post"}
-          %input{class:"t-header__main__box__search",name:"key",placeholder: "キーワードから探す"}
-          %button{type:"submit",class:"t-header__main__box__submit"}
-            =image_tag"icon-search 1.png",size: "19x19", class: "imgs"
+        = form_with(url: search_items_path, local: true, method: :get, class: "s-form") do |form| 
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "s-form__text" 
+          %label.s-label
+            %i.fa.fa-search
+              = form.submit class: "s-btn" 
     .t-header__nav
       %ul.t-header__nav__left
         %li.t-header__nav__left--item
@@ -38,15 +39,12 @@
               = @item.name
             .item-box__photo
               %span
-                %span
-                  = image_tag src="/assets/image-1.png", size: "620x443"
-                %ul
-                  %li
-                    = image_tag src="/assets/image-1.png", size: "140x97"
-                  %li
-                    = image_tag src="/assets/image-2.png", size: "140x97"
-                  %li
-                    = image_tag src="/assets/image-3.png", size: "140x97"
+                = image_tag @item.images.first.src.url,size:"620x443"
+                - if @item.images
+                  %ul
+                    - @item.images.each do |image|
+                      %li
+                        = image_tag image.src.url,size:"140x97"
             .item-box__price
               ¥
               = @item.price
@@ -56,8 +54,8 @@
                 %span
                   送料込み
             .tablebox-title
-              = @item.name
             .info-table 
+              = @item.info
               %table
                 %tbody
                   %tr
@@ -71,62 +69,99 @@
                       カテゴリー
                     %td
                       = link_to do
-                        レディース
+                        =@parent.name
                       %br
                       = link_to do
-                        トップス
+                        =@child.name
                       %br
                       = link_to do
-                        Tシャツ/カットソー(半袖/袖なし)
-      
+                        =@grandchild.name
                   %tr
                     %th
                       ブランド
                     %td
                   %tr
                     %th
-                      商品のサイズ
-                    %td
-                  %tr
-                    %th
                       商品の状態
                     %td
                       = link_to do
-                        新品/未使用
+                        =@condition.name
                   %tr
                     %th
                       配送料の負担	
                     %td
                       = link_to do
-                        送料込み（出品者負担）
+                        =@deliverypays.name
                   %tr
                     %th
                       発送元の地域
                     %td
                       = link_to do
-                        青森県
+                        =@prefecture.name
                   %tr
                     %th
                       発送日の目安	
                     %td
                       = link_to do
-                        1-2日で発送
+                        =@deliverydate.name
             .favorite
               %i.fa.fa-star
-              お気に入り
+                = render "more/favorite"
+            .buy-box
+              .delete-box__btn
+                - if user_signed_in? && current_user.id == @item.user_id
+                  - if @item.buyer_id.present?
+                    = link_to item_path(@item.id), method: :delete do
+                      %button#delete-btn 
+                        削除する
+                  - else
+                    .box-btn
+                      = link_to edit_item_path(@item.id) do
+                        %button#edit-btn
+                          編集する
+                      = link_to item_path(@item.id), method: :delete do
+                        %button#delete-btn-new
+                          削除する
+                -elsif user_signed_in?
+                  -if @item.buyer_id.present?
+                  - else
+                    .buy-box__btn
+                      = link_to confirm_item_path,data: {"turbolinks" => false} do
+                        %button#buy-btn 
+                          購入する
+                - else
+                  .buy-box__btn
+                    = link_to new_user_registration_path,data: {"turbolinks" => false} do
+                      %button#buy-btn 
+                        購入する
           .comment-box
-            .comment-box__text
-              %textarea
-                :preserve
-                
-            .comment-box__message
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            .comment-box__btn
-              %button#comment-btn 
-                %i.fa.fa-comment
-                コメントする
+            - if current_user
+              = form_with(model: [@item, @comment], local: true, id: "new_comment") do |form|
+                = form.text_area :text, placeholder: "コメントする", rows: "2",class: "textbox"
+                .comment-box__message
+                  相手のことを考え丁寧なコメントを心がけましょう。
+                  %br
+                  不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                .comment-box__btn
+                  = form.submit "コメントする",id:"comment-btn",class:"form__submit"
+            - else
+              .comment-dekimasen
+                コメントするには
+                = link_to user_session_path do
+                  ログイン
+              .commento-dekimasen2 
+                してください。
+          .commentss
+            %a コメント一覧
+            .comments
+              .comment
+                - if @comments
+                  - @comments.each do |comment|
+                    .comment__box
+                      .comment__box__user
+                        = comment.user.name
+                      .comment__box__text
+                        = comment.text 
         .link-page
           .link-page__left
             = link_to "#" do
@@ -140,6 +175,7 @@
         .look-item
           = link_to "#" do
             レディースをもっと見る
+
 .t-contents1
   .t-contents1__box
     %h2.t-contents1__box__title

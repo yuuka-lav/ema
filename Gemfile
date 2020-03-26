@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'capistrano'
+  gem 'capistrano', '3.12.0'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -84,5 +84,6 @@ gem 'kaminari'
 gem 'ancestry'
 gem 'payjp'
 gem 'dotenv-rails'
-gem "jquery-rails"
-
+gem 'jquery-rails'
+gem 'active_hash'
+gem "fog-aws"

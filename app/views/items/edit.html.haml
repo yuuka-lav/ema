@@ -1,0 +1,137 @@
+.is-whapper
+  = render "more/header"
+  = form_with model: @item, local: true do |form|
+    - if @item.errors.any?
+      .item__errors
+        %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @item.errors.full_messages.each do |message|
+            %li= message
+    .is-contents
+      .sell-image-box
+        .title
+          .title__name
+            出品画像
+          .title__need
+            必須
+        .text
+          最大10枚までアップロードできます
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag asset_path("#{image.src.url}"), data: {index: i}, width: "100", height: "100"
+            
+            = form.fields_for :images do |i|
+              .js-file_group{data: {index: "#{i.index}"}, type: "file"}
+                = i.file_field :src, class: "js-file"
+                .js-file
+                .js-remove 削除
+              - if @item.persisted?
+                = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                .js-remove 削除
+      .item-info-box
+        .item-name
+          .item-name__title
+            商品名
+          .item-name__need
+            必須
+        .item-nbox
+          = form.text_field :name, class: 'item-nbox__form', :placeholder => '40文字以内'
+        .item-details
+          .item-details__name
+            商品の説明
+          .item-details__need
+            必須
+        .item-dbox
+          = form.text_area :info, class: 'item-dbox__form', :placeholder => '商品の説明(必須1,000文字以内）（色、素材、重さ、定価、注意点）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'
+        .text-count
+          0/1000
+      .item-type-box
+        .type-text
+          商品の詳細
+        .category
+          .category__title
+            カテゴリー
+          .category__need
+            必須
+        .product_category-select
+          = form.select :category, @category_parent_array, {selected: @parent_category.name}, {class: "category_select-box", id: "category_select"}
+        #children_wrapper.product_select-children
+          = form.select :category, options_for_select(@category_children_array.map{|e| [e.name, e.id, {data:{category: e.id}}]},{selected: @child_category.id}), {prompt: "選択してください"}, {class: "category_select-box", id: "child_category"}
+        #grandchildren_wrapper.product_select-grandchildren
+          = form.select :category, options_for_select(@category_grandchildren_array.map{|o| [o.name, o.id, {data:{category: o.id}}]},{selected: @grandchild_category.id}), {prompt: "選択してください"}, {class: "category_select-box", id: "grandchild_category"}
+
+        .brand
+          .brand__title
+            ブランド
+          .brand__need
+            任意
+        .item-bbox
+          = form.text_field :brand, class: 'item-bbox__form', :placeholder => '例）シャネル'
+        .status
+          .status__title
+            商品の状態
+          .status__need
+            必須
+        .item-sbox
+          = form.collection_select :condition_id, Condition.all, :id, :name
+      .item-deliver-box
+        .deliver-text
+          配送について
+        .deliver-fee
+          .deliver-fee__title
+            配送料の負担
+          .deliver-fee__need
+            必須
+        .item-dvbox
+          = form.collection_select :deliverypays_id , Deliverypays.all, :id, :name
+        .deliver-area
+          .deliver-area__title
+            配送料場所
+          .deliver-area__need
+            必須
+        .item-abox
+          = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+        .deliver-date
+          .deliver-date__title
+            配送までの日数
+          .deliver-date__need
+            必須
+        .item-datebox
+          = form.collection_select :deliverydate_id , Deliverydate.all, :id, :name
+      .item-sell-box
+        .price-text
+          価格（¥300〜9,999,999）
+        .sell-prices
+          .sell-price
+            .sell-price__title
+              販売価格
+            .sell-price__need
+              必須
+          .sell-box
+            .sell-box__text
+              ¥
+            = form.number_field :price, class: 'sell-box__form', :placeholder => '０', min: 300, max: 9999999
+        .sell-margin
+          .sell-margin__text
+            販売手数料 (10%)
+          .sell-margin__stick
+            ー
+        %hr.is-border
+        .sell-benefit
+          .sell-margin__text
+            販売履歴
+          .sell-margin__stick
+            ー
+      = form.submit "更新する" , class: 'sell-btn'
+      .return-btn
+        = link_to root_path, class: "return-btn__return" do
+          .return-btn__text
+            もどる
+      .bottom-text
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+    = render "more/footer"

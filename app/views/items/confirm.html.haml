@@ -7,13 +7,14 @@
       .b-items__buy-item
         .b-items__buy-item__box
           .b-items__buy-item__box--img
-            画像
+            = image_tag @item.images.first.src.url,size:"80x80"
           .b-items__buy-item__box--text
             .b-item-name
-              商品名
+              = @item.name
             .b-item-price
               %span
-                ¥000
+                ¥
+                = @item.price
               %span.b-item-price__fee
                 (税込) 送料込み
       .b-buy-item
@@ -22,7 +23,8 @@
             .b-price-table__cell1
               支払い金額
             .b-price-table__cell2
-              ¥000
+              ¥
+              = @item.price
           .b-buy-point
             .b-buy-point__box
             .b-buy-point__text
@@ -36,7 +38,6 @@
                   - if @default_card_information.blank?
                     %br /
                   - else
-                    -#以下カード情報を表示
                     = "**** **** **** " + @default_card_information.last4
                     - exp_month = @default_card_information.exp_month.to_s
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
@@ -55,6 +56,6 @@
                 xx県xx市xxxx
                 %br
                 名前
-          = form_tag(action: :pay, method: :post) do
+          = form_tag(pay_item_path, method: :post) do
             %button 購入する
   = render "more/footer"

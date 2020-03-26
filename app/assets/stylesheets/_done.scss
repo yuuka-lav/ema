@@ -1,0 +1,32 @@
+.done-main{
+  background-color: #f5f5f5;
+  &__center{
+    width: 700px;
+    margin: 0 auto;
+    &__box{
+      height: 470px;
+      text-align: center;
+      background-color: white;
+      &__name{
+        font-size: 27px;
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+      &__title{
+        font-size: 27px;
+        height: 97px;
+      }
+      &__top{
+        a{
+          color: #3CCACE;
+          font-size: 16px;
+          text-decoration: none; 
+        }
+        a:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}

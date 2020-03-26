@@ -20,13 +20,6 @@
         width: 343px;
         height: 80px;
         display: flex;
-        &--img{
-          width: 80px;
-          height: 80px;
-          background-color: gray;
-          text-align: center;
-          line-height: 80px;
-        }
         &--text{
           margin-left: 16px;
           .b-item-name{
@@ -130,6 +123,11 @@
           line-height: 50px;
           font-size: 17px;
           cursor: pointer;
+          outline: none;
+          border-radius: 100px;
+        }
+        button:hover{
+          opacity: 0.5;
         }
       }
     }

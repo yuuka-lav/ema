@@ -12,7 +12,7 @@
       margin: 0 auto;
       &__top{
         .item-box{
-          height: 1300px;
+          
           background-color: #fff;
           padding: 24px 40px 40px;
           &__name{
@@ -26,11 +26,11 @@
             margin: 0 auto;
             ul{
               list-style: none;
-              width: 560px;
+              width: 420px;
               align-items: center;
               margin: 0 auto;
               display: flex;
-              justify-content: center;
+              overflow: scroll;
             }
           }
       
@@ -79,7 +79,7 @@
             }
           }
           .favorite{
-            width: 145px;
+            width: 160px;
             margin-right: auto;
             padding: 6px 10px;
             border-radius: 40px;
@@ -89,19 +89,16 @@
           } 
         }
         .comment-box{
-          height: 300px;
           padding: 24px;
           background-color: #fff;
           margin: 10px 0;
           text-align: center;
-          &__text{
             textarea{
               width: 100%;
               min-height: 100px;
               padding: 10px;
             }
           
-          }
           &__message{
             padding: 8px;
             font-size: 14px;
@@ -113,17 +110,55 @@
             margin-top: 30px;
             #comment-btn{
               line-height: 48px;
-               background: #3CCACE;
-               border: 1px solid #3CCACE;
-               color: #fff;
-               width: 60%;
-               font-size: 18px;
-               border-radius: 100px;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              cursor: pointer;
+              outline: none;
+            }
+            #comment-btn:hover{
+              opacity: 0.5;
             }
           }
         }
       }
     }
+    .commentss{
+      height: 300px;
+      padding: 24px;
+      background-color: #fff;
+      margin: 10px 0;
+      text-align: center;
+
+      a{
+        color: #3CCACE;
+        font-size: 29px;
+      }
+      .comments{
+        height: 200px;
+        overflow: scroll;
+      .comment{
+        
+        &__box{
+          display: flex;
+          padding-bottom: 10px;
+          &__user{
+            color: slategray;
+            padding-left: 20px;
+          }
+          &__text{
+            padding-left: 100px;
+            padding-top: 2px;
+            color: #3CCACE;
+          }
+        }
+      }
+    }
+  }
+
     .link-page{
       list-style: none;
       display: flex;
@@ -145,4 +180,91 @@
       }
     }
   }
+}
+.buy-box{
+  text-align: center;
+  &__btn{
+    margin-top: 30px;
+    #buy-btn{
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      outline: none;
+    }
+    #buy-btn:hover{
+      opacity: 0.5;
+    }
+  }
+}
+.delete-box{
+  text-align: center;
+  &__btn{
+    margin-top: 30px;
+    #delete-btn{
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      outline: none;
+    }
+    #delete-btn:hover{
+      opacity: 0.5;
+    }
+    .box-btn{
+      width: 60%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      #delete-btn-new{
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 100px;
+        cursor: pointer;
+        padding: 0 40px;
+      }
+      #delete-btn-new:hover{
+        opacity: 0.5;
+      }
+      #edit-btn{
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 100px;
+        cursor: pointer;
+        padding: 0 40px;
+        outline: none;
+      }
+      #edit-btn:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+}
+.comment-dekimasen{
+  display: inline-block;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: #3CCACE;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+}
+.commento-dekimasen2{
+  display: inline-block;
 }

@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order("created_at DESC")
     @images = Image.all
-    @itemss = Item.all
+    @items = Item.all
     @categories = Category.all
     @parents = Category.where(ancestry: nil)
   end
